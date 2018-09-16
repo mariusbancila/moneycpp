@@ -1,5 +1,6 @@
 #pragma once
 #include "currency.h"
+#include "rounding.h"
 
 namespace moneycpp
 {
@@ -80,6 +81,18 @@ namespace moneycpp
    constexpr money<TValue> make_money(TValue const value, currency_unit const currency) noexcept
    {
       return money<TValue> { value, currency };
+   }
+   
+   template <typename TValue>
+   money<TValue> convert_money(money<TValue> const & m, currency_unit const currency, double const exchange_rate)
+   {
+      if(exchange_rate <= 0)
+         throw std::runtime_error("Exchange rate must be positive");
+      
+      if(m.currency == currency)
+         return m;
+      
+      return make_money<TValue>(m.amount * exchange_rate, currency);
    }
 
    namespace currency_literals
