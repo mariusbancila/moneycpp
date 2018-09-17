@@ -83,8 +83,12 @@ namespace moneycpp
       return money<TValue> { value, currency };
    }
    
-   template <typename TValue>
-   money<TValue> convert_money(money<TValue> const & m, currency_unit const currency, double const exchange_rate)
+   template <typename TValue, typename FRound>
+   money<TValue> convert_money(
+      money<TValue> const & m, 
+      currency_unit const currency, 
+      double const exchange_rate,
+      FRound rounding)
    {
       if(exchange_rate <= 0)
          throw std::runtime_error("Exchange rate must be positive");
@@ -92,14 +96,10 @@ namespace moneycpp
       if(m.currency == currency)
          return m;
       
-      return make_money<TValue>(m.amount * exchange_rate, currency);
-   }
-
-   namespace currency_literals
-   {
-      constexpr auto operator"" _usd(unsigned long long const value)
-      {
-         return make_money(value, currency::USD);
-      }
+      auto c = std::pow(TValue(10.0), currency.minor_unit);
+      auto amount = static_cast<TValue>(m.amount * exchange_rate * c);
+      return make_money<TValue>(         
+         std::invoke(std::forward<FRound>(rounding), amount) / c,
+         currency);
    }
 }
