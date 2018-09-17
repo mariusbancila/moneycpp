@@ -97,10 +97,9 @@ namespace moneycpp
       if(m.currency == currency)
          return m;
       
-      auto c = std::pow(TValue(10.0), currency.minor_unit);
+      auto c = std::pow(TValue(10.0), std::max(m.currency.minor_unit, currency.minor_unit));
       auto amount = static_cast<TValue>(m.amount * exchange_rate * c);
-      return make_money<TValue>(         
-         std::invoke(std::forward<FRound>(rounding), amount) / c,
-         currency);
+      auto r = std::invoke(std::forward<FRound>(rounding), amount);
+      return make_money<TValue>(r / c, currency);
    }
 }
