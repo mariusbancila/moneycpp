@@ -105,7 +105,7 @@ TEST_CASE("Test conversion", "[exchange]")
 {
    std::vector<std::tuple<double, double, double>> values
    {
-      { 0.0,     1.0,    0.0 },
+      { 0.0,     1.0,    0.00 },
 
       { 20.0,    1.0,    20.0 },
       { 20.12,   1.0,    20.12 },
@@ -130,4 +130,34 @@ TEST_CASE("Test conversion", "[exchange]")
 
       REQUIRE_EQ(m2.amount, result);
    }   
+}
+
+TEST_CASE("Test conversion extra decimals", "[exchange]")
+{
+   std::vector<std::tuple<double, double, double>> values
+   {
+      { 0.0,     1.0,    0.0 },
+      
+      { 20.0,    1.0,    20.0000 },
+      { 20.12,   1.0,    20.1200 },
+      { 20.0,    1.1,    22.0000 },
+      { 22.55,   1.2345, 27.8380 },
+      { 101.95,  1.1149, 113.6641 },
+      
+      { -20.0,   1.0,    -20.0000 },
+      { -20.12,  1.0,    -20.1200 },
+      { -20.0,   1.1,    -22.0000 },
+      { -22.55,  1.2345, -27.8379 },
+      { -101.95, 1.1149, -113.6640 },
+   };
+   
+   for (auto const & t : values)
+   {
+      auto[amount, rate, result] = t;
+      
+      auto m1 = make_money(amount, currency::USD);
+      auto m2 = convert_money(m1, currency::CLF, rate, round_ceiling());
+      
+      REQUIRE_EQ(m2.amount, result);
+   }
 }
