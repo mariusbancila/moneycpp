@@ -44,7 +44,7 @@ namespace moneycpp
       inline T operator()(T const) const;
    };
 
-   //  round towards "nearest neighbor" unless both neighbors are equidistant, in which case round up
+   // round towards "nearest neighbor" unless both neighbors are equidistant, in which case round up
    // input:  -5.5, -2.5, -1.6, -1.1, -1.0, 1.0, 1.1, 1.6, 2.5, 5.5
    // result: -6.0, -3.0, -2.0, -1.0, -1.0, 1.0, 1.0, 2.0, 3.0, 6.0
    struct round_half_up
@@ -67,6 +67,15 @@ namespace moneycpp
    // result: -6.0, -2.0, -2.0, -1.0, -1.0, 1.0, 1.0, 2.0, 2.0, 6.0
    struct round_half_even
    {      
+      template <typename T>
+      inline T operator()(T const) const;
+   };
+
+   // round towards the "nearest neighbor" unless both neighbors are equidistant, in which case, round towards the odd neighbor
+   // input:  -5.5, -2.5, -1.6, -1.1, -1.0, 1.0, 1.1, 1.6, 2.5, 5.5
+   // result: -5.0, -3.0, -2.0, -1.0, -1.0, 1.0, 1.0, 2.0, 3.0, 5.0
+   struct round_half_odd
+   {
       template <typename T>
       inline T operator()(T const) const;
    };
@@ -197,5 +206,26 @@ namespace moneycpp
    inline long double round_half_even::operator()(long double const value) const
    {
       return value - std::remainder(value, 1.0l);
+   }
+
+   template <>
+   inline float round_half_odd::operator()(float const value) const
+   {
+      auto r = std::remainder(value, 1.0f);
+      return std::abs(r) == 0.5f ? value + r : std::floorf(value + 0.5f);
+   }
+
+   template <>
+   inline double round_half_odd::operator()(double const value) const
+   {
+      auto r = std::remainder(value, 1.0);
+      return std::abs(r) == 0.5 ? value + r : std::floor(value + 0.5);
+   }
+
+   template <>
+   inline long double round_half_odd::operator()(long double const value) const
+   {
+      auto r = std::remainder(value, 1.0l);
+      return std::abs(r) == 0.5l ? value + r : std::floorl(value + 0.5l);
    }
 }
