@@ -1,6 +1,7 @@
 #pragma once
 #include "currency.h"
 #include "rounding.h"
+#include <functional>
 
 namespace moneycpp
 {
