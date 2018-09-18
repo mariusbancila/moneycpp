@@ -98,7 +98,7 @@ namespace moneycpp
       constexpr currency_unit INR { "INR", 356, 2, "Indian rupee" };
       constexpr currency_unit IQD { "IQD", 368, 2, "Iraqi dinar" };
       constexpr currency_unit IRR { "IRR", 364, 2, "Iranian rial" };
-      constexpr currency_unit ISK { "ISK", 352, 2, "Icelandic króna" };
+      constexpr currency_unit ISK { "ISK", 352, 2, "Icelandic krona" };
       constexpr currency_unit JMD { "JMD", 388, 2, "Jamaican dollar" };
       constexpr currency_unit JOD { "JOD", 400, 3, "Jordanian dinar" };
       constexpr currency_unit JPY { "JPY", 392, 0, "Japanese yen" };
@@ -117,6 +117,28 @@ namespace moneycpp
       constexpr currency_unit LRD { "LRD", 430, 2, "Liberian dollar" };
       constexpr currency_unit LSL { "LSL", 426, 2, "Lesotho loti" };
       constexpr currency_unit LYD { "LYD", 434, 3, "Libyan dinar" };
+      constexpr currency_unit MAD { "MAD", 504, 2, "Moroccan dirham" };
+      constexpr currency_unit MDL { "MDL", 498, 2, "Moldovan leu" };
+      constexpr currency_unit MGA { "MGA", 969, 1, "Malagasy ariary" };
+      constexpr currency_unit MKD { "MKD", 807, 2, "Macedonian denar" };
+      constexpr currency_unit MMK { "MMK", 104, 2, "Myanmar kyat" };
+      constexpr currency_unit MNT { "MNT", 496, 2, "Mongolian tšgršg" };
+      constexpr currency_unit MOP { "MOP", 446, 2, "Macanese pataca" };
+      constexpr currency_unit MRU { "MRU", 929, 1, "Mauritanian ouguiya" };
+      constexpr currency_unit MUR { "MUR", 480, 2, "Mauritian rupee" };
+      constexpr currency_unit MVR { "MVR", 462, 2, "Maldivian rufiyaa" };
+      constexpr currency_unit MWK { "MWK", 454, 2, "Malawian kwacha" };
+      constexpr currency_unit MXN { "MXN", 484, 2, "Mexican peso" };
+      constexpr currency_unit MXV { "MXV", 979, 2, "Mexican Unidad de Inversion" };
+      constexpr currency_unit MYR { "MYR", 458, 2, "Malaysian ringgit" };
+      constexpr currency_unit MZN { "MZN", 943, 2, "Mozambican metical" };
+      constexpr currency_unit NAD { "NAD", 516, 2, "Namibian dollar" };
+      constexpr currency_unit NGN { "NGN", 566, 2, "Nigerian naira" };
+      constexpr currency_unit NIO { "NIO", 558, 2, "Nicaraguan c—rdoba" };
+      constexpr currency_unit NOK { "NOK", 578, 2, "Norwegian krone" };
+      constexpr currency_unit NPR { "NPR", 524, 2, "Nepalese rupee" };
+      constexpr currency_unit NZD { "NZD", 554, 2, "New Zealand dollar" };
+      constexpr currency_unit OMR { "OMR", 512, 3, "Omani rial" };
       //constexpr currency_unit{ "", , 2, "" };
 
       constexpr currency_unit USD { "USD", 840, 2, "United States dollar" };
@@ -135,6 +157,9 @@ namespace moneycpp
          JMD, JOD, JPY,
          KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD,
          LAK, LBP, LKR, LRD, LSL, LYD,
+         MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN,
+         NAD, NGN, NIO, NOK, NPR, NZD,
+         OMR,
 
          USD,
          
