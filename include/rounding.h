@@ -80,6 +80,13 @@ namespace moneycpp
       inline T operator()(T const) const;
    };
 
+   // round nothing
+   struct round_none
+   {
+      template <typename T>
+      constexpr inline T operator()(T const value) const { return value; }
+   };
+
    // specialization
 
    template <>

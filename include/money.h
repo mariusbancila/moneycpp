@@ -84,10 +84,10 @@ namespace moneycpp
       return money<TValue> { value, currency };
    }
    
-   template <typename RoundFunc>
+   template <typename RoundFunc = round_none>
    struct rounding_policy_none
    {
-      rounding_policy_none(RoundFunc rounding)
+      rounding_policy_none(RoundFunc = RoundFunc())
       {
       }
 
