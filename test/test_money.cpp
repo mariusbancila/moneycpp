@@ -86,6 +86,68 @@ TEST_CASE("Divide money", "[money]")
    REQUIRE_THROWS_AS(m1 / 0, std::runtime_error);
 }
 
+TEST_CASE("Test rounding policy none", "[policy]")
+{
+   std::vector<std::pair<double, double>> values
+   {
+      { 0.0, 0.0 },
+      { 1.5, 1.5 },
+      { 1.1, 1.1 },
+      { -1.12345, -1.12345 }
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::USD);
+      auto r = rounding_policy_none()(m);
+
+      REQUIRE_EQ(p.second, r.amount);
+   }
+}
+
+TEST_CASE("Test rounding policy standard", "[policy]")
+{
+   std::vector<std::pair<double, double>> values
+   {
+      { 0.0, 0.0 },
+      { 1.5, 1.5 },
+      { 1.1, 1.1 },
+      { -1.12345, -1.1234 },
+      { -2.234567, -2.2345 },
+      { 4.88999, 4.8900 }
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::USD);
+      auto r = rounding_policy_standard(round_ceiling())(m);
+
+      REQUIRE_EQ(p.second, r.amount);
+   }
+}
+
+TEST_CASE("Test rounding policy to currency digits", "[policy]")
+{
+   std::vector<std::pair<double, double>> values
+   {
+      { 0.00, 0.00 },
+      { 1.50, 1.50 },
+      { 1.10, 1.11 },
+      { -1.12345, -1.12 },
+      { -2.234567, -2.23 },
+      { 4.88999, 4.89 },
+      { 3.12001, 3.13 },
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::USD);
+      auto r = rounding_policy_to_currency_digits(round_ceiling())(m);
+
+      REQUIRE_EQ(p.second, r.amount);
+   }
+}
+
 TEST_CASE("Test invalid exchange", "[exchange]")
 {
    auto m = make_money(20.0, currency::USD);
