@@ -89,16 +89,24 @@ TEST_CASE("Divide money", "[money]")
 TEST_CASE("Test invalid exchange", "[exchange]")
 {
    auto m = make_money(20.0, currency::USD);
-   REQUIRE_THROWS_AS(convert_money(m, currency::EUR, 0.0, round_ceiling()), std::runtime_error);
-   REQUIRE_THROWS_AS(convert_money(m, currency::EUR, -1.0, round_ceiling()), std::runtime_error);
+   REQUIRE_THROWS_AS(
+      exchange_money(m, currency::EUR, 0.0, rounding_policy_standard(round_ceiling())),
+      std::runtime_error);
+   REQUIRE_THROWS_AS(
+      exchange_money(m, currency::EUR, -1.0, rounding_policy_standard(round_ceiling())),
+      std::runtime_error);
 }
 
 TEST_CASE("Test exchange same currency", "[exchange]")
 {
    auto m1 = make_money(20.0, currency::USD);
-   auto m2 = convert_money(m1, currency::USD, 2, round_ceiling());
-   
+   auto m2 = exchange_money(m1, currency::USD, 2.0, rounding_policy_none(round_ceiling()));
+   auto m3 = exchange_money(m1, currency::USD, 2.0, rounding_policy_standard(round_ceiling()));
+   auto m4 = exchange_money(m1, currency::USD, 2.0, rounding_policy_to_currency_digits(round_ceiling()));
+
    REQUIRE(m1 == m2);
+   REQUIRE(m1 == m3);
+   REQUIRE(m1 == m4);
 }
 
 TEST_CASE("Test conversion", "[exchange]")
@@ -126,7 +134,7 @@ TEST_CASE("Test conversion", "[exchange]")
       auto[amount, rate, result] = t;
 
       auto m1 = make_money(amount, currency::USD);
-      auto m2 = convert_money(m1, currency::EUR, rate, round_ceiling());
+      auto m2 = exchange_money(m1, currency::EUR, rate, rounding_policy_to_currency_digits(round_ceiling()));
 
       REQUIRE_EQ(m2.amount, result);
    }   
@@ -156,7 +164,7 @@ TEST_CASE("Test conversion extra decimals", "[exchange]")
       auto[amount, rate, result] = t;
       
       auto m1 = make_money(amount, currency::USD);
-      auto m2 = convert_money(m1, currency::CLF, rate, round_ceiling());
+      auto m2 = exchange_money(m1, currency::CLF, rate, rounding_policy_standard(round_ceiling()));
       
       REQUIRE_EQ(m2.amount, result);
    }

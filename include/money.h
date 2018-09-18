@@ -84,22 +84,78 @@ namespace moneycpp
       return money<TValue> { value, currency };
    }
    
-   template <typename TValue, typename FRound>
-   money<TValue> convert_money(
+   template <typename RoundFunc>
+   struct rounding_policy_none
+   {
+      rounding_policy_none(RoundFunc rounding)
+      {
+      }
+
+      template <typename TValue>
+      money<TValue> operator()(money<TValue> const value)
+      {
+         return value;
+      }
+   };
+
+   template <typename RoundFunc>
+   struct rounding_policy_standard
+   {
+      rounding_policy_standard(RoundFunc rounding):rfun(rounding)
+      {}
+
+      template <typename TValue>
+      money<TValue> operator()(money<TValue> const value)
+      {
+         auto c = TValue(10000.0);
+         auto amount = static_cast<TValue>(value.amount * c);
+         auto r = std::invoke(std::forward<RoundFunc>(rfun), amount);
+         return make_money<TValue>(r / c, value.currency);
+      }
+
+   private:
+      RoundFunc rfun;
+   };
+
+   template <typename RoundFunc>
+   struct rounding_policy_to_currency_digits
+   {
+      rounding_policy_to_currency_digits(RoundFunc rounding) :rfun(rounding)
+      {}
+
+      template <typename TValue>
+      money<TValue> operator()(money<TValue> const value)
+      {
+         auto c = std::pow(TValue(10.0), value.currency.minor_unit);
+         auto amount = static_cast<TValue>(value.amount * c);
+         auto r = std::invoke(std::forward<RoundFunc>(rfun), amount);
+         return make_money<TValue>(r / c, value.currency);
+      }
+
+   private:
+      RoundFunc rfun;
+   };
+
+   template <typename TValue, typename RoundPolicy>
+   money<TValue> exchange_money(
       money<TValue> const & m, 
       currency_unit const currency, 
-      double const exchange_rate,
-      FRound rounding)
+      TValue const rate,
+      RoundPolicy roundingPolicy)
    {
-      if(exchange_rate <= 0)
+      if(rate <= 0)
          throw std::runtime_error("Exchange rate must be positive");
       
       if(m.currency == currency)
          return m;
-      
-      auto c = std::pow(TValue(10.0), std::max(m.currency.minor_unit, currency.minor_unit));
-      auto amount = static_cast<TValue>(m.amount * exchange_rate * c);
-      auto r = std::invoke(std::forward<FRound>(rounding), amount);
-      return make_money<TValue>(r / c, currency);
+
+      auto exchange = make_money<TValue>(static_cast<TValue>(m.amount * rate), currency);
+
+      auto result =
+         std::invoke(
+            std::forward<RoundPolicy>(roundingPolicy),
+            exchange);
+
+      return result;
    }
 }
