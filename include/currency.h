@@ -70,21 +70,74 @@ namespace moneycpp
       constexpr currency_unit CUP { "CUP", 192, 2, "Cuban peso" };
       constexpr currency_unit CVE { "CVE", 132, 0, "Cape Verde escudo" };
       constexpr currency_unit CZK { "CZK", 203, 2, "Czech koruna" };
-
+      constexpr currency_unit DJF { "DJF", 262, 0, "Djiboutian franc" };
+      constexpr currency_unit DKK { "DKK", 208, 2, "Danish krone" };
+      constexpr currency_unit DOP { "DOP", 214, 2, "Dominican peso" };
+      constexpr currency_unit DZD { "DZD",  12, 2, "Algerian dinar" };
+      constexpr currency_unit EGP { "EGP", 818, 2, "Egyptian pound" };
+      constexpr currency_unit ERN { "ERN", 232, 2, "Eritrean nakfa" };
+      constexpr currency_unit ETB { "ETB", 230, 2, "Ethiopian birr" };
+      constexpr currency_unit EUR { "EUR", 978, 2, "Euro" };
+      constexpr currency_unit FJD { "FJD", 242, 2, "Fiji dollar" };
+      constexpr currency_unit FKP { "FKP", 238, 2, "Falkland Islands pound" };
+      constexpr currency_unit GBP { "GBP", 826, 2, "Pound sterling" };
+      constexpr currency_unit GEL { "GEL", 981, 2, "Georgian lari" };
+      constexpr currency_unit GHS { "GHS", 936, 2, "Ghanaian cedi" };
+      constexpr currency_unit GIP { "GIP", 292, 2, "Gibraltar pound" };
+      constexpr currency_unit GMD { "GMD", 270, 2, "Gambian dalasi" };
+      constexpr currency_unit GNF { "GNF", 324, 0, "Guinean franc" };
+      constexpr currency_unit GTQ { "GTQ", 320, 2, "Guatemalan quetzal" };
+      constexpr currency_unit GYD { "GYD", 328, 2, "Guyanese dollar" };
+      constexpr currency_unit HKD { "HKD", 344, 2, "Hong Kong dollar" };
+      constexpr currency_unit HNL { "HNL", 340, 2, "Honduran lempira" };
+      constexpr currency_unit HRK { "HRK", 191, 2, "Croatian kuna" };
+      constexpr currency_unit HTG { "HTG", 332, 2, "Haitian gourde" };
+      constexpr currency_unit HUF { "HUF", 348, 2, "Hungarian forint" };
+      constexpr currency_unit IDR { "IDR", 360, 2, "Indonesian rupiah" };
+      constexpr currency_unit ILS { "ILS", 376, 2, "Israeli new shekel" };
+      constexpr currency_unit INR { "INR", 356, 2, "Indian rupee" };
+      constexpr currency_unit IQD { "IQD", 368, 2, "Iraqi dinar" };
+      constexpr currency_unit IRR { "IRR", 364, 2, "Iranian rial" };
+      constexpr currency_unit ISK { "ISK", 352, 2, "Icelandic króna" };
+      constexpr currency_unit JMD { "JMD", 388, 2, "Jamaican dollar" };
+      constexpr currency_unit JOD { "JOD", 400, 3, "Jordanian dinar" };
+      constexpr currency_unit JPY { "JPY", 392, 0, "Japanese yen" };
+      constexpr currency_unit KES { "KES", 404, 2, "Kenyan shilling" };
+      constexpr currency_unit KGS { "KGS", 417, 2, "Kyrgyzstani som" };
+      constexpr currency_unit KHR { "KHR", 116, 2, "Cambodian riel" };
+      constexpr currency_unit KMF { "KMF", 174, 0, "Comoro franc" };
+      constexpr currency_unit KPW { "KPW", 408, 2, "North Korean won" };
+      constexpr currency_unit KRW { "KRW", 410, 0, "South Korean won" };
+      constexpr currency_unit KWD { "KWD", 414, 3, "Kuwaiti dinar" };
+      constexpr currency_unit KYD { "KYD", 136, 2, "Cayman Islands dollar" };
+      constexpr currency_unit KZT { "KZT", 398, 2, "Kazakhstani tenge" };
+      constexpr currency_unit LAK { "LAK", 418, 2, "Lao kip" };
+      constexpr currency_unit LBP { "LBP", 422, 2, "Lebanese pound" };
+      constexpr currency_unit LKR { "LKR", 144, 2, "Sri Lankan rupee" };
+      constexpr currency_unit LRD { "LRD", 430, 2, "Liberian dollar" };
+      constexpr currency_unit LSL { "LSL", 426, 2, "Lesotho loti" };
+      constexpr currency_unit LYD { "LYD", 434, 3, "Libyan dinar" };
       //constexpr currency_unit{ "", , 2, "" };
 
       constexpr currency_unit USD { "USD", 840, 2, "United States dollar" };
-      constexpr currency_unit EUR { "EUR", 978, 2, "Euro" };
-      constexpr currency_unit GBP { "GBP", 826, 2, "Pound sterling" };
 
       static const std::initializer_list<currency_unit> currencies
       {
          AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN,
          BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD,
          CAD, CDF, CHE, CHF, CHW, CLF, CLP, CNY, COP, COU, CRC, CUC, CUP, CVE, CZK,
+         DJF, DKK, DOP, DZD,
+         EGP, ERN, ETB, EUR,
+         FJD, FKP,
+         GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD,
+         HKD, HNL, HRK, HTG, HUF,
+         IDR, ILS, INR, IQD, IRR, ISK,
+         JMD, JOD, JPY,
+         KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD,
+         LAK, LBP, LKR, LRD, LSL, LYD,
+
          USD,
-         EUR,
-         GBP
+         
       };
    }
 
