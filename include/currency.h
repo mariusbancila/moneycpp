@@ -139,6 +139,33 @@ namespace moneycpp
       constexpr currency_unit NPR { "NPR", 524, 2, "Nepalese rupee" };
       constexpr currency_unit NZD { "NZD", 554, 2, "New Zealand dollar" };
       constexpr currency_unit OMR { "OMR", 512, 3, "Omani rial" };
+      constexpr currency_unit PAB { "PAB", 590, 2, "Panamanian balboa" };
+      constexpr currency_unit PEN { "PEN", 604, 2, "Peruvian sol" };
+      constexpr currency_unit PGK { "PGK", 598, 2, "Papua New Guinean kina" };
+      constexpr currency_unit PHP { "PHP", 608, 2, "Philippine peso" };
+      constexpr currency_unit PKR { "PKR", 586, 2, "Pakistani rupee" };
+      constexpr currency_unit PLN { "PLN", 985, 2, "Polish zloty" };
+      constexpr currency_unit PYG { "PYG", 600, 0, "Paraguayan guaraní" };
+      constexpr currency_unit QAR { "QAR", 634, 2, "Qatari riyal" };
+      constexpr currency_unit RON { "RON", 946, 2, "Romanian leu" };
+      constexpr currency_unit RSD { "RSD", 941, 2, "Serbian dinar" };
+      constexpr currency_unit RUB { "RUB", 643, 2, "Russian ruble" };
+      constexpr currency_unit RWF { "RWF", 646, 0, "Rwandan franc" };
+      constexpr currency_unit SAR { "SAR", 682, 2, "Saudi riyal" };
+      constexpr currency_unit SBD { "SBD",  90, 2, "Solomon Islands dollar" };
+      constexpr currency_unit SCR { "SCR", 690, 2, "Seychelles rupee" };
+      constexpr currency_unit SDG { "SDG", 938, 2, "Sudanese pound" };
+      constexpr currency_unit SEK { "SEK", 752, 2, "Swedish krona" };
+      constexpr currency_unit SGD { "SGD", 702, 2, "Singapore dollar" };
+      constexpr currency_unit SHP { "SHP", 654, 2, "Saint Helena pound" };
+      constexpr currency_unit SLL { "SLL", 694, 2, "Sierra Leonean leone" };
+      constexpr currency_unit SOS { "SOS", 706, 2, "Somali shilling" };
+      constexpr currency_unit SRD { "SRD", 968, 2, "Surinamese dollar" };
+      constexpr currency_unit SSP { "SSP", 728, 2, "South Sudanese pound" };
+      constexpr currency_unit STN { "STN", 930, 2, "São Tomé and Príncipe dobra" };
+      constexpr currency_unit SVC { "SVC", 222, 2, "Salvadoran colón" };
+      constexpr currency_unit SYP { "SYP", 760, 2, "Syrian pound" };
+      constexpr currency_unit SZL { "SZL", 748, 2, "Swazi lilangeni" };
       //constexpr currency_unit{ "", , 2, "" };
 
       constexpr currency_unit USD { "USD", 840, 2, "United States dollar" };
@@ -160,6 +187,10 @@ namespace moneycpp
          MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN,
          NAD, NGN, NIO, NOK, NPR, NZD,
          OMR,
+         PAB, PEN, PGK, PHP, PKR, PLN, PYG,
+         QAR,
+         RON, RSD, RUB, RWF,
+         SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL,
 
          USD,
          
