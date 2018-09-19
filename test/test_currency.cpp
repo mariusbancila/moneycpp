@@ -1,6 +1,9 @@
 #include "currency.h"
 #include "catch.hpp"
 
+#include <vector>
+#include <set>
+
 using namespace moneycpp;
 
 TEST_CASE("Equality currency", "[currency]")
@@ -19,3 +22,28 @@ TEST_CASE("Equality currency", "[currency]")
    REQUIRE(cu1 != cu4);
    REQUIRE(cu1 != cu5);
 }
+
+TEST_CASE("Unique currency codes", "[currency]")
+{
+   auto db = std::vector<currency_unit> {currency::currencies};
+   
+   std::set<int> codes;
+   for(auto const & cu : db)
+   {
+      auto result = codes.insert(cu.number);
+      REQUIRE(result.second != false);
+   }
+}
+
+TEST_CASE("Unique currency names", "[currency]")
+{
+   auto db = std::vector<currency_unit> {currency::currencies};
+   
+   std::set<std::string_view> codes;
+   for(auto const & cu : db)
+   {
+      auto result = codes.insert(cu.name);
+      REQUIRE(result.second != false);
+   }
+}
+
