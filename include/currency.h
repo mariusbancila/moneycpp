@@ -134,7 +134,7 @@ namespace moneycpp
       constexpr currency_unit MZN { "MZN", 943, 2, "Mozambican metical" };
       constexpr currency_unit NAD { "NAD", 516, 2, "Namibian dollar" };
       constexpr currency_unit NGN { "NGN", 566, 2, "Nigerian naira" };
-      constexpr currency_unit NIO { "NIO", 558, 2, "Nicaraguan c—rdoba" };
+      constexpr currency_unit NIO { "NIO", 558, 2, "Nicaraguan cordoba" };
       constexpr currency_unit NOK { "NOK", 578, 2, "Norwegian krone" };
       constexpr currency_unit NPR { "NPR", 524, 2, "Nepalese rupee" };
       constexpr currency_unit NZD { "NZD", 554, 2, "New Zealand dollar" };
@@ -145,7 +145,7 @@ namespace moneycpp
       constexpr currency_unit PHP { "PHP", 608, 2, "Philippine peso" };
       constexpr currency_unit PKR { "PKR", 586, 2, "Pakistani rupee" };
       constexpr currency_unit PLN { "PLN", 985, 2, "Polish zloty" };
-      constexpr currency_unit PYG { "PYG", 600, 0, "Paraguayan guaran’" };
+      constexpr currency_unit PYG { "PYG", 600, 0, "Paraguayan guarani" };
       constexpr currency_unit QAR { "QAR", 634, 2, "Qatari riyal" };
       constexpr currency_unit RON { "RON", 946, 2, "Romanian leu" };
       constexpr currency_unit RSD { "RSD", 941, 2, "Serbian dinar" };
@@ -162,13 +162,53 @@ namespace moneycpp
       constexpr currency_unit SOS { "SOS", 706, 2, "Somali shilling" };
       constexpr currency_unit SRD { "SRD", 968, 2, "Surinamese dollar" };
       constexpr currency_unit SSP { "SSP", 728, 2, "South Sudanese pound" };
-      constexpr currency_unit STN { "STN", 930, 2, "S‹o TomŽ and Pr’ncipe dobra" };
-      constexpr currency_unit SVC { "SVC", 222, 2, "Salvadoran col—n" };
+      constexpr currency_unit STN { "STN", 930, 2, "Sao Tome and Principe dobra" };
+      constexpr currency_unit SVC { "SVC", 222, 2, "Salvadoran colon" };
       constexpr currency_unit SYP { "SYP", 760, 2, "Syrian pound" };
       constexpr currency_unit SZL { "SZL", 748, 2, "Swazi lilangeni" };
-      //constexpr currency_unit{ "", , 2, "" };
-
+      constexpr currency_unit THB { "THB", 764, 2, "Thai baht" };
+      constexpr currency_unit TJS { "TJS", 972, 2, "Tajikistani somoni" };
+      constexpr currency_unit TMT { "TMT", 934, 2, "Turkmenistan manat" };
+      constexpr currency_unit TND { "TND", 788, 3, "Tunisian dinar" };
+      constexpr currency_unit TOP { "TOP", 776, 2, "Tongan pa'anga" };
+      constexpr currency_unit TRY { "TRY", 949, 2, "Turkish lira" };
+      constexpr currency_unit TTD { "TTD", 780, 2, "Trinidad and Tobago dollar" };
+      constexpr currency_unit TWD { "TWD", 901, 2, "New Taiwan dollar" };
+      constexpr currency_unit TZS { "TZS", 834, 2, "Tanzanian shilling" };
+      constexpr currency_unit UAH { "UAH", 980, 2, "Ukrainian hryvnia" };
+      constexpr currency_unit UGX { "UGX", 800, 2, "Ugandan shilling" };
       constexpr currency_unit USD { "USD", 840, 2, "United States dollar" };
+      constexpr currency_unit USN { "USN", 997, 2, "United States dollar (next day) " };
+      constexpr currency_unit UYI { "UYI", 940, 0, "Uruguay Peso en Unidades Indexadas " };
+      constexpr currency_unit UYU { "UYU", 858, 2, "Uruguayan peso" };
+      constexpr currency_unit UYW { "UYW", 927, 4, "Unidad previsional" };
+      constexpr currency_unit UZS { "UZS", 860, 2, "Uzbekistan som" };
+      constexpr currency_unit VES { "VES", 928, 2, "Venezuelan bolívar soberano" };
+      constexpr currency_unit VND { "VND", 704, 0, "Vietnamese dong" };
+      constexpr currency_unit VUV { "VUV", 548, 0, "Vanuatu vatu" };
+      constexpr currency_unit WST { "WST", 882, 2, "Samoan tala" };
+      constexpr currency_unit XAF { "XAF", 950, 0, "CFA franc BEAC" };
+      constexpr currency_unit XAG { "XAG", 961,-1, "Silver" };
+      constexpr currency_unit XAU { "XAU", 959,-1, "Gold" };
+      constexpr currency_unit XBA { "XBA", 955,-1, "European Composite Unit (EURCO)" };
+      constexpr currency_unit XBB { "XBB", 956,-1, "European Monetary Unit" };
+      constexpr currency_unit XBC { "XBC", 957,-1, "European Unit of Account 9" };
+      constexpr currency_unit XBD { "XBD", 958,-1, "European Unit of Account 17" };
+      constexpr currency_unit XCD { "XCD", 951, 2, "East Caribbean dollar" };
+      constexpr currency_unit XDR { "XDR", 960,-1, "Special drawing rights" };
+      constexpr currency_unit XOF { "XOF", 952, 0, "CFA franc BCEAO" };
+      constexpr currency_unit XPD { "XPD", 964,-1, "Palladium" };
+      constexpr currency_unit XPF { "XPF", 953, 0, "CFP franc" };
+      constexpr currency_unit XPT { "XPT", 962,-1, "Platinum" };
+      constexpr currency_unit XSU { "XSU", 994,-1, "SUCRE" };
+      constexpr currency_unit XTS { "XTS", 963,-1, "Reserved for testing" };
+      constexpr currency_unit XUA { "XUA", 965,-1, "ADB Unit of Account" };
+      constexpr currency_unit XXX { "XXX", 999,-1, "" };
+      constexpr currency_unit YER { "YER", 886, 2, "Yemeni rial" };
+      constexpr currency_unit ZAR { "ZAR", 710, 2, "South African rand" };
+      constexpr currency_unit ZMW { "ZMW", 967, 2, "Zambian kwacha" };
+      constexpr currency_unit ZWL { "ZWL", 932, 2, "Zimbabwean dollar" };
+      //constexpr currency_unit{ "", , 2, "" };
 
       static const std::initializer_list<currency_unit> currencies
       {
@@ -191,9 +231,13 @@ namespace moneycpp
          QAR,
          RON, RSD, RUB, RWF,
          SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL,
-
-         USD,
-         
+         THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS,
+         UAH, UGX, USD, USN, UYI, UYU, UYW, UZS, 
+         VES, VND, VUV,
+         WST,
+         XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX,
+         YER,
+         ZAR, ZMW, ZWL
       };
    }
 

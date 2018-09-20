@@ -30,9 +30,10 @@ TEST_CASE("Unique currency codes", "[currency]")
    std::set<int> codes;
    for(auto const & cu : db)
    {
-      auto result = codes.insert(cu.number);
-      REQUIRE(result.second != false);
+      codes.insert(cu.number);
+      INFO(std::to_string(cu.number));
    }
+   REQUIRE(codes.size() == db.size());
 }
 
 TEST_CASE("Unique currency names", "[currency]")
@@ -43,7 +44,8 @@ TEST_CASE("Unique currency names", "[currency]")
    for(auto const & cu : db)
    {
       auto result = codes.insert(cu.name);
-      REQUIRE(result.second != false);
+      INFO(cu.name);
    }
+   REQUIRE(codes.size() == db.size());
 }
 
