@@ -30,10 +30,17 @@ TEST_CASE("Unique currency codes", "[currency]")
    std::set<int> codes;
    for(auto const & cu : db)
    {
-      codes.insert(cu.number);
-      INFO(std::to_string(cu.number));
+      if (cu.number > 0)
+      {
+         codes.insert(cu.number);
+      }
    }
-   REQUIRE(codes.size() == db.size());
+
+   auto count = std::count_if(
+      std::begin(db), std::end(db),
+      [](currency_unit const & cu) {return cu.number > 0; });
+
+   REQUIRE(codes.size() == count);
 }
 
 TEST_CASE("Unique currency names", "[currency]")
@@ -43,9 +50,16 @@ TEST_CASE("Unique currency names", "[currency]")
    std::set<std::string_view> codes;
    for(auto const & cu : db)
    {
-      auto result = codes.insert(cu.name);
-      INFO(cu.name);
+      if (cu.number > 0)
+      {
+         codes.insert(cu.name);
+      }
    }
-   REQUIRE(codes.size() == db.size());
+
+   auto count = std::count_if(
+      std::begin(db), std::end(db),
+      [](currency_unit const & cu) {return cu.number > 0; });
+
+   REQUIRE(codes.size() == count);
 }
 

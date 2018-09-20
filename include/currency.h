@@ -29,6 +29,7 @@ namespace moneycpp
 
    namespace currency
    {
+      // active ISO 4217 currency codes 
       constexpr currency_unit AED { "AED", 784, 2, "United Arab Emirates dirham" };
       constexpr currency_unit AFN { "AFN", 971, 2, "Afghan afghani" };
       constexpr currency_unit ALL { "ALL",   8, 2, "Albanian lek" };
@@ -208,10 +209,35 @@ namespace moneycpp
       constexpr currency_unit ZAR { "ZAR", 710, 2, "South African rand" };
       constexpr currency_unit ZMW { "ZMW", 967, 2, "Zambian kwacha" };
       constexpr currency_unit ZWL { "ZWL", 932, 2, "Zimbabwean dollar" };
-      //constexpr currency_unit{ "", , 2, "" };
+
+      // unofficial codes
+      constexpr currency_unit CNH { "CNH", 0, 2, "Chinese yuan" };
+      constexpr currency_unit CNT { "CNT", 0, 2, "Chinese yuan" };
+      constexpr currency_unit GGP { "GGP", 0, 2, "Guernsey pound" };
+      constexpr currency_unit IMP { "IMP", 0, 2, "Isle of Man pound" };
+      constexpr currency_unit JEP { "JEP", 0, 2, "Jersey pound" };
+      constexpr currency_unit KID { "KID", 0, 2, "Kiribati dollar" };
+      constexpr currency_unit NIS { "NIS", 0, 2, "Israeli new shekel" };
+      constexpr currency_unit NTD { "NTD", 0, 2, "New Taiwan dollar" };
+      constexpr currency_unit PRB { "PRB", 0, 2, "Transnistrian ruble" };
+      constexpr currency_unit SLS { "SLS", 0, 2, "Somaliland shilling" };
+      constexpr currency_unit RMB { "RMB", 0, 2, "Renminbi (Chinese) yuan" };
+      constexpr currency_unit TVD { "TVD", 0, 2, "Tuvalu dollar" };
+
+      // crypto-currencies
+      constexpr currency_unit DASH { "DASH", 0,  8, "Dash" };
+      constexpr currency_unit ETH  { "ETH",  0, 18, "Ether" };
+      constexpr currency_unit VTC  { "VTC",  0,  8, "Vertcoin" };
+      constexpr currency_unit XBC_ { "XBC_", 0,  8, "Bitcoin Cash" };
+      constexpr currency_unit XBT  { "XBT",  0,  8, "Bitcoin" };
+      constexpr currency_unit XLM  { "XLM",  0,  8, "Stellar Lumen" };
+      constexpr currency_unit XMR  { "XMR",  0, 12, "Monero" };
+      constexpr currency_unit XRP  { "XRP",  0,  6, "Ripple" };
+      constexpr currency_unit ZEC  { "ZEC",  0,  8, "Zcash" };
 
       static const std::initializer_list<currency_unit> currencies
       {
+         // official
          AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN,
          BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD,
          CAD, CDF, CHE, CHF, CHW, CLF, CLP, CNY, COP, COU, CRC, CUC, CUP, CVE, CZK,
@@ -237,7 +263,13 @@ namespace moneycpp
          WST,
          XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX,
          YER,
-         ZAR, ZMW, ZWL
+         ZAR, ZMW, ZWL,
+
+         // unofficial
+         CNH, CNT, GGP, IMP, JEP, KID, NIS, NTD, PRB, SLS, RMB, TVD, 
+
+         // crypto-currencies
+         DASH, ETH, VTC, XBC_, XBT, XLM, XMR, XRP, ZEC
       };
    }
 
