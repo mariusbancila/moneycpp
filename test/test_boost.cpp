@@ -2,16 +2,8 @@
 #include "catch.hpp"
 
 #ifdef USE_BOOST_MULTIPRECISION
-#include "boost\multiprecision\cpp_dec_float.hpp"
-using decimal = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<50>>;
-
-namespace
-{
-   inline decimal operator""_dec(char const * str, std::size_t)
-   {
-      return decimal(str);
-   }
-}
+#include "ext\boost.h"
+#include <vector>
 
 using namespace moneycpp;
 
@@ -72,6 +64,114 @@ TEST_CASE("Boost decimal divide money", "[boost][money]")
 
    REQUIRE(m3.amount == "8.04"_dec);
    REQUIRE_THROWS_AS(m1 / "0"_dec, std::runtime_error);
+}
+
+template <typename T>
+static std::vector<T> inputs
+{ T("5.5"), T("2.5"), T("1.6"), T("1.1"), T("1.0"), T("-1.0"), T("-1.1"), T("-1.6"), T("-2.5"), T("-5.5") };
+
+template <typename T>
+static std::vector<T> exp_round_up
+{ T("6.0"), T("3.0"), T("2.0"), T("2.0"), T("1.0"), T("-1.0"), T("-2.0"), T("-2.0"), T("-3.0"), T("-6.0") };
+
+template <typename T>
+static std::vector<T> exp_round_down
+{ T("5.0"), T("2.0"), T("1.0"), T("1.0"), T("1.0"), T("-1.0"), T("-1.0"), T("-1.0"), T("-2.0"), T("-5.0") };
+
+template <typename T>
+static std::vector<T> exp_round_ceil
+{ T("6.0"), T("3.0"), T("2.0"), T("2.0"), T("1.0"), T("-1.0"), T("-1.0"), T("-1.0"), T("-2.0"), T("-5.0") };
+
+template <typename T>
+static std::vector<T> exp_round_floor
+{ T("5.0"), T("2.0"), T("1.0"), T("1.0"), T("1.0"), T("-1.0"), T("-2.0"), T("-2.0"), T("-3.0"), T("-6.0") };
+
+template <typename T>
+static std::vector<T> exp_round_half_up
+{ T("6.0"), T("3.0"), T("2.0"), T("1.0"), T("1.0"), T("-1.0"), T("-1.0"), T("-2.0"), T("-3.0"), T("-6.0") };
+
+template <typename T>
+static std::vector<T> exp_round_half_down
+{ T("5.0"), T("2.0"), T("2.0"), T("1.0"), T("1.0"), T("-1.0"), T("-1.0"), T("-2.0"), T("-2.0"), T("-5.0") };
+
+template <typename T>
+static std::vector<T> exp_round_half_even
+{ T("6.0"), T("2.0"), T("2.0"), T("1.0"), T("1.0"), T("-1.0"), T("-1.0"), T("-2.0"), T("-2.0"), T("-6.0") };
+
+template <typename T>
+static std::vector<T> exp_round_half_odd
+{ T("5.0"), T("3.0"), T("2.0"), T("1.0"), T("1.0"), T("-1.0"), T("-1.0"), T("-2.0"), T("-3.0"), T("-5.0") };
+
+TEST_CASE("Boost decimal round up test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_up()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_up<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round down test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_down()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_down<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round ceil test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_ceiling()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_ceil<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round floor test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_floor()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_floor<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round half up test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_half_up()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_half_up<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round half down test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_half_down()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_half_down<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round half even test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_half_even()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_half_even<decimal>[i]);
+   }
+}
+
+TEST_CASE("Boost decimal round half odd test", "[rounding][boost]")
+{
+   for (size_t i = 0; i < inputs<decimal>.size(); ++i)
+   {
+      auto r = round_half_odd()(inputs<decimal>[i]);
+      REQUIRE(r == exp_round_half_odd<decimal>[i]);
+   }
 }
 
 #endif
