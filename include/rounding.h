@@ -199,7 +199,7 @@ namespace moneycpp
 
    template <>
    inline float round_half_even::operator()(float const value) const
-   {
+   {      
       return value - std::remainder(value, 1.0f);
    }
 

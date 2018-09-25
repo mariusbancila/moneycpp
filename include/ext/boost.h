@@ -73,15 +73,36 @@ namespace moneycpp
    template <>
    inline decimal round_half_even::operator()(decimal const value) const
    {
-      return value - boost::multiprecision::remainder(value, 1.0);
+      decimal rv = boost::multiprecision::remainder(value, 1.0);
+      if (boost::multiprecision::abs(rv) == "0.5"_dec)
+      {
+         decimal ip;
+         decimal fp = boost::multiprecision::modf(value, &ip);
+         if (boost::multiprecision::remainder(ip, decimal(2U)) == decimal(0U))
+         {
+            rv = -rv;
+         }
+      }
+
+      return value - rv;
    }
 
    template <>
    inline decimal round_half_odd::operator()(decimal const value) const
    {
-      auto r = boost::multiprecision::remainder(value, 1.0);
-      if (boost::multiprecision::abs(r) == "0.5"_dec)
-         return value + r;
+      decimal rv = boost::multiprecision::remainder(value, 1.0);
+
+      if (boost::multiprecision::abs(rv) == "0.5"_dec)
+      {
+         decimal ip;
+         decimal fp = boost::multiprecision::modf(value, &ip);
+         if (boost::multiprecision::remainder(ip, decimal(2U)) == decimal(0U))
+         {
+            rv = -rv;
+         }
+
+         return value + rv;
+      }
       else
          return boost::multiprecision::floor(value + "0.5"_dec);
    }
