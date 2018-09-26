@@ -174,4 +174,83 @@ TEST_CASE("Boost decimal round half odd test", "[rounding][boost]")
    }
 }
 
+TEST_CASE("Boost decimal rounding policy none test", "[policy][boost]")
+{
+   std::vector<std::pair<decimal, decimal>> values
+   {
+      { "0.0"_dec, "0.0"_dec },
+      { "1.5"_dec, "1.5"_dec },
+      { "1.1"_dec, "1.1"_dec },
+      { "-1.12345"_dec, "-1.12345"_dec }
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::USD);
+      auto r = rounding_policy_none()(m);
+
+      REQUIRE(p.second == r.amount);
+   }
+}
+
+TEST_CASE("Boost decimal rounding policy standard test", "[policy][boost]")
+{
+   std::vector<std::pair<decimal, decimal>> values
+   {
+      { "0.0"_dec, "0.0"_dec },
+      { "1.5"_dec, "1.5"_dec },
+      { "1.1"_dec, "1.1"_dec },
+      { "-1.12345"_dec, "-1.1234"_dec },
+      { "-2.234567"_dec, "-2.2345"_dec },
+      { "4.88999"_dec, "4.8900"_dec }
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::USD);
+      auto r = rounding_policy_standard(round_ceiling())(m);
+
+      REQUIRE(p.second == r.amount);
+   }
+}
+
+TEST_CASE("Boost decimal rounding policy to currency digits test", "[policy][boost]")
+{
+   std::vector<std::pair<decimal, decimal>> values
+   {
+      { "0.00"_dec, "0.00"_dec },
+      { "1.50"_dec, "1.50"_dec },
+      { "1.10"_dec, "1.10"_dec },
+      { "-1.12345"_dec, "-1.12"_dec },
+      { "-2.234567"_dec, "-2.23"_dec },
+      { "4.88999"_dec, "4.89"_dec },
+      { "3.12001"_dec, "3.13"_dec },
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::USD);
+      auto r = rounding_policy_to_currency_digits(round_ceiling())(m);
+
+      REQUIRE(p.second == r.amount);
+   }
+}
+
+TEST_CASE("Boost decimal rounding policy to currency with multi digits test", "[policy][boost]")
+{
+   std::vector<std::pair<decimal, decimal>> values
+   {
+      {  "12.123456789012345678901"_dec,  "12.123456789012345678"_dec },
+      { "-12.123456789012345678901"_dec, "-12.123456789012345679"_dec },
+   };
+
+   for (auto const p : values)
+   {
+      auto m = make_money(p.first, currency::ETH);
+      auto r = rounding_policy_to_currency_digits(round_floor())(m);
+
+      REQUIRE(p.second == r.amount);
+   }
+}
+
 #endif
