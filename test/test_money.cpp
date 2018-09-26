@@ -171,7 +171,7 @@ TEST_CASE("Test exchange same currency", "[exchange]")
    REQUIRE(m1 == m4);
 }
 
-TEST_CASE("Test conversion", "[exchange]")
+TEST_CASE("Test exchange", "[exchange]")
 {
    std::vector<std::tuple<double, double, double>> values
    {
@@ -202,7 +202,7 @@ TEST_CASE("Test conversion", "[exchange]")
    }   
 }
 
-TEST_CASE("Test conversion extra decimals", "[exchange]")
+TEST_CASE("Test exchange extra decimals", "[exchange]")
 {
    std::vector<std::tuple<double, double, double>> values
    {

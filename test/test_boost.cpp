@@ -174,4 +174,88 @@ TEST_CASE("Boost decimal round half odd test", "[rounding][boost]")
    }
 }
 
+TEST_CASE("Boost decimal invalid exchange test", "[exchange][boost]")
+{
+   auto m = make_money(decimal(20U), currency::USD);
+   REQUIRE_THROWS_AS(
+      exchange_money(m, currency::EUR, decimal(0U), rounding_policy_standard(round_ceiling())),
+      std::runtime_error);
+   REQUIRE_THROWS_AS(
+      exchange_money(m, currency::EUR, decimal(-1), rounding_policy_standard(round_ceiling())),
+      std::runtime_error);
+}
+
+TEST_CASE("Boost decimal exchange same currency test", "[exchange][boost]")
+{
+   auto m1 = make_money(decimal(20U), currency::USD);
+   auto m2 = exchange_money(m1, currency::USD, decimal(2U), rounding_policy_none(round_ceiling()));
+   auto m3 = exchange_money(m1, currency::USD, decimal(2U), rounding_policy_standard(round_ceiling()));
+   auto m4 = exchange_money(m1, currency::USD, decimal(2U), rounding_policy_to_currency_digits(round_ceiling()));
+
+   REQUIRE(m1 == m2);
+   REQUIRE(m1 == m3);
+   REQUIRE(m1 == m4);
+}
+
+TEST_CASE("Boost decimal  exchange test", "[exchange][boost]")
+{
+   std::vector<std::tuple<decimal, decimal, decimal>> values
+   {
+      { "0.0"_dec,     "1.0"_dec,    "0.00"_dec },
+
+      { "20.0"_dec,    "1.0"_dec,    "20.0"_dec },
+      { "20.12"_dec,   "1.0"_dec,    "20.12"_dec },
+      { "20.0"_dec,    "1.1"_dec,    "22.0"_dec },
+      { "22.55"_dec,   "1.2345"_dec, "27.84"_dec },
+      { "101.95"_dec,  "1.1149"_dec, "113.67"_dec },
+
+      { "-20.0"_dec,   "1.0"_dec,    "-20.0"_dec },
+      { "-20.12"_dec,  "1.0"_dec,    "-20.12"_dec },
+      { "-20.0"_dec,   "1.1"_dec,    "-22.0"_dec },
+      { "-22.55"_dec,  "1.2345"_dec, "-27.83"_dec },
+      { "-101.95"_dec, "1.1149"_dec, "-113.66"_dec },
+
+   };
+
+   for (auto const & t : values)
+   {
+      auto[amount, rate, result] = t;
+
+      auto m1 = make_money(amount, currency::USD);
+      auto m2 = exchange_money(m1, currency::EUR, rate, rounding_policy_to_currency_digits(round_ceiling()));
+
+      REQUIRE(m2.amount == result);
+   }
+}
+
+TEST_CASE("Boost decimal exchange extra decimals test", "[exchange][boost]")
+{
+   std::vector<std::tuple<decimal, decimal, decimal>> values
+   {
+      { "0.0"_dec,     "1.0"_dec,    "0.0"_dec },
+
+      { "20.0"_dec,    "1.0"_dec,    "20.0000"_dec },
+      { "20.12"_dec,   "1.0"_dec,    "20.1200"_dec },
+      { "20.0"_dec,    "1.1"_dec,    "22.0000"_dec },
+      { "22.55"_dec,   "1.2345"_dec, "27.8380"_dec },
+      { "101.95"_dec,  "1.1149"_dec, "113.6641"_dec },
+
+      { "-20.0"_dec,   "1.0"_dec,    "-20.0000"_dec },
+      { "-20.12"_dec,  "1.0"_dec,    "-20.1200"_dec },
+      { "-20.0"_dec,   "1.1"_dec,    "-22.0000"_dec },
+      { "-22.55"_dec,  "1.2345"_dec, "-27.8379"_dec },
+      { "-101.95"_dec, "1.1149"_dec, "-113.6640"_dec },
+   };
+
+   for (auto const & t : values)
+   {
+      auto[amount, rate, result] = t;
+
+      auto m1 = make_money(amount, currency::USD);
+      auto m2 = exchange_money(m1, currency::CLF, rate, rounding_policy_standard(round_ceiling()));
+
+      REQUIRE(m2.amount == result);
+   }
+}
+
 #endif
