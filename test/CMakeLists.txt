@@ -9,7 +9,7 @@ if(BOOST_MULTIPRECISION)
    add_definitions(-DUSE_BOOST_MULTIPRECISION)
 endif()
 
-file(GLOB headers ${CMAKE_SOURCE_DIR}/include/*.h)
+file(GLOB headers ${CMAKE_SOURCE_DIR}/include/*.h ${CMAKE_SOURCE_DIR}/include/ext/*.h)
 file(GLOB SOURCES "*.cpp" "include/*.cpp")
 
 add_executable(test_moneycpp ${SOURCES} ${headers})
