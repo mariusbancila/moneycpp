@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 #include <string_view>
+#include <optional>
 
 namespace moneycpp
 {
@@ -52,4 +53,26 @@ namespace moneycpp
          DZ,
       };
    }
+
+   inline std::optional<country_unit> find_country(int const code)
+   {
+      for (auto const & cu : country::countries)
+      {
+         if (cu.code == code)
+            return std::optional{ cu };
+      }
+      return {};
+   }
+
+   inline std::optional<country_unit> find_country(std::string_view alpha2)
+   {
+      for (auto const & cu : country::countries)
+      {
+         if (cu.alpha2 == alpha2)
+            return std::optional{ cu };
+      }
+
+      return {};
+   }
+
 }

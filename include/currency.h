@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 #include <string_view>
+#include <optional>
 
 namespace moneycpp
 {
@@ -271,6 +272,27 @@ namespace moneycpp
          // crypto-currencies
          DASH, ETH, VTC, XBC_, XBT, XLM, XMR, XRP, ZEC
       };
+   }
+
+   inline std::optional<currency_unit> find_currency(std::string_view code)
+   {
+      for (auto const & cu : currency::currencies)
+      {
+         if (cu.code == code)
+            return std::optional{ cu };
+      }
+      return {};
+   }
+
+   inline std::optional<currency_unit> find_currency(int const number)
+   {
+      for (auto const & cu : currency::currencies)
+      {
+         if (cu.number == number)
+            return std::optional{ cu };
+      }
+
+      return {};
    }
 
    struct bad_currency_error : public std::runtime_error

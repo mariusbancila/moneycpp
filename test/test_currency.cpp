@@ -46,3 +46,23 @@ TEST_CASE("Unique currencies", "[currency]")
    REQUIRE(names.size() == count);
 }
 
+TEST_CASE("Test find currency", "[find][currency]")
+{
+   {
+      auto cu1 = find_currency("USD");
+      REQUIRE(cu1.has_value());
+      REQUIRE(cu1.value() == currency::USD);
+
+      auto cu2 = find_currency("DSU");
+      REQUIRE(!cu2.has_value());
+   }
+
+   {
+      auto cu1 = find_currency(840);
+      REQUIRE(cu1.has_value());
+      REQUIRE(cu1.value() == currency::USD);
+
+      auto cu2 = find_currency(1);
+      REQUIRE(!cu2.has_value());
+   }
+}

@@ -47,3 +47,24 @@ TEST_CASE("Unique countries", "[country]")
    REQUIRE(alpha2s.size() == count);
    REQUIRE(alpha3s.size() == count);
 }
+
+TEST_CASE("Test find country", "[find][country]")
+{
+   {
+      auto cu1 = find_country("AU");
+      REQUIRE(cu1.has_value());
+      REQUIRE(cu1.value() == country::AU);
+
+      auto cu2 = find_country("UA");
+      REQUIRE(!cu2.has_value());
+   }
+
+   {
+      auto cu1 = find_country(36);
+      REQUIRE(cu1.has_value());
+      REQUIRE(cu1.value() == country::AU);
+
+      auto cu2 = find_country(1);
+      REQUIRE(!cu2.has_value());
+   }
+}
