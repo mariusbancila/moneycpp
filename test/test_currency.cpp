@@ -23,16 +23,18 @@ TEST_CASE("Equality currency", "[currency]")
    REQUIRE(cu1 != cu5);
 }
 
-TEST_CASE("Unique currency codes", "[currency]")
+TEST_CASE("Unique currencies", "[currency]")
 {
    auto db = std::vector<currency_unit> {currency::currencies};
    
    std::set<int> codes;
+   std::set<std::string_view> names;
    for(auto const & cu : db)
    {
       if (cu.number > 0)
       {
          codes.insert(cu.number);
+         names.insert(cu.name);
       }
    }
 
@@ -41,25 +43,6 @@ TEST_CASE("Unique currency codes", "[currency]")
       [](currency_unit const & cu) {return cu.number > 0; });
 
    REQUIRE(codes.size() == count);
-}
-
-TEST_CASE("Unique currency names", "[currency]")
-{
-   auto db = std::vector<currency_unit> {currency::currencies};
-   
-   std::set<std::string_view> codes;
-   for(auto const & cu : db)
-   {
-      if (cu.number > 0)
-      {
-         codes.insert(cu.name);
-      }
-   }
-
-   auto count = std::count_if(
-      std::begin(db), std::end(db),
-      [](currency_unit const & cu) {return cu.number > 0; });
-
-   REQUIRE(codes.size() == count);
+   REQUIRE(names.size() == count);
 }
 

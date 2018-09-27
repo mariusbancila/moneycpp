@@ -1,16 +1,16 @@
 #pragma once
 
-#include <vector>
+#include <initializer_list>
 #include <string_view>
 
 namespace moneycpp
 {
    struct currency_unit
    {
-      const std::string_view  code;
-      const int               number;
-      const int               minor_unit;
-      const std::string_view  name;
+      std::string_view const code;
+      int              const number;
+      int              const minor_unit;
+      std::string_view const name;
    };
 
    constexpr bool operator==(currency_unit const & lhs, currency_unit const & rhs) noexcept
