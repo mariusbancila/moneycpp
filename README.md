@@ -48,3 +48,43 @@ auto ex = exchange_money(
    currency::EUR, "0.8649"_dec,
    rounding_policy_to_currency_digits(round_half_even()));
 ```
+
+## Rounding
+Several rounding algorithms are provided with the library. These algorithms take a numerical value and return another numerical value. In addition to these, any user-defined rounding algorithm can be used with the library. The rounding algorithms are as follows:
+
+| Name | Description | Functor |
+| --- | --- | --- |
+| None | no rounding | `round_none` |
+| Up | rounds away from zero | `round_up` |
+| Down | rounds towards zero | `round_down` |
+| Ceiling | rounds towards positive infinity | `round_ceiling` |
+| Floor | rounds towards negative infinity | `round_floor` |
+| Half up | rounds towards "nearest neighbour" unless both neighbours are equidistant, in which case round up | `round_half_up` |
+| Half down | rounds towards "nearest neighbour" unless both neighbours are equidistant, in which case round down | `round_half_down` |
+| Half even | rounds towards the "nearest neighbour" unless both neighbours are equidistant, in which case, round towards the even neighbour | `round_half_even` |
+| Half odd | rounds towards the "nearest neighbour" unless both neighbours are equidistant, in which case, round towards the odd neighbour | `round_half_odd` |
+
+The following is a table with numerical examples for each rounding algorithm:
+
+|  | -5.5 | -2.5 | -1.6 | -1.1 | -1.0 | 1.0 | 1.1 | 1.6 | 2.5 | 5.5 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Up | -6.0 | -3.0 | -2.0 | -2.0 | -1.0 | 1.0 | 2.0 | 2.0 | 3.0 | 6.0 |
+| Down | -5.0 | -2.0 | -1.0 | -1.0 | -1.0 | 1.0 | 1.0 | 1.0 | 2.0 | 5.0 |
+| Ceiling | -5.0 | -2.0 | -1.0 | -1.0 | -1.0 | 1.0 | 2.0 |  2.0 | 3.0 | 6.0 |
+| Floor | -6.0 | -3.0 | -2.0 | -2.0 | -1.0 | 1.0 | 1.0 | 1.0 | 2.0 | 5.0 |
+| Half up | -6.0 | -3.0 | -2.0 | -1.0 | -1.0 | 1.0 | 1.0 | 2.0 | 3.0 | 6.0 |
+| Half down | -5.0 | -2.0 | -2.0 | -1.0 | -1.0 | 1.0 | 1.0 | 2.0 | 2.0 | 5.0 |
+| Half even | -6.0 | -2.0 | -2.0 | -1.0 | -1.0 | 1.0 | 1.0 | 2.0 | 2.0 | 6.0 |
+| Half odd | -5.0 | -3.0 | -2.0 | -1.0 | -1.0 | 1.0 | 1.0 | 2.0 | 3.0 | 5.0 |
+
+More about these rounding algorithms can be found in the article [Rounding Algorithms 101 Redux](https://www.eetimes.com/document.asp?doc_id=1274515).
+
+Apart from the rounding algorithms, the library provides several rounding policies that define how a `money` value should be rounded. The available policies are:
+
+| Type name | Description |
+| --- | --- |
+| `rounding_policy_none`| No rounding is performed |
+| `rounding_policy_standard` | Rounding to 4 decimal digits |
+| `rounding_policy_to_currency_digits` | Rounding to the number of digits (i.e. minor unit) as defined for the currency |
+
+Any additional user-defined policy can be used instead of the ones supplied with the library.
