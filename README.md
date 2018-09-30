@@ -58,7 +58,7 @@ auto ex = exchange_money(
 ```
 
 ## Rounding
-Several rounding algorithms are provided with the library. These algorithms take a numerical value and return another numerical value. In addition to these, any user-defined rounding algorithm can be used with the library. The rounding algorithms are as follows:
+Several rounding algorithms are provided with the library. These algorithms transform a numerical value from a greater precision (e.g. 19.99128) to a lesser precision (e.g. 19.99). In addition to these, any user-defined rounding algorithm can be used with the library. The rounding algorithms, implemented as functors, are as follows:
 
 | Name | Description | Functor |
 | --- | --- | --- |
