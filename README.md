@@ -1,7 +1,7 @@
 # moneycpp
 A C++ 17 header-only, cross-platform library for handling monetary values, currencies, rounding and other related features.
 
-**THIS PROJECT IS UNDER CONSTRUCTION!**
+**THIS PROJECT IS A WORK IN PROGRESS!**
 
 ## Core requirements
 The library is intended for being used in a variety of types of application including ERP systems, banking, finance, insurrance, games, and others.
