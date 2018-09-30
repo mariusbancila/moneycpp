@@ -15,6 +15,13 @@ The following is a list of its core requirements:
 * It should be possible for users to add new (virtual) currencies and countries.
 * Format and parse monetary values.
 
+## Overview
+The library is built around several core components:
+* `money` that holds a monetary value
+* `currency_unit` that contains currency information for a monetary value as per ISO 4217
+* `country_unit` that contains country information in relation to currencies, as per ISO 3166-1
+* rounding algorithms - that specify how values are rounded, and policies - that specify how monetary values are rounded using a rounding algorithm
+
 ## Library API
 The following are examples for using the library:
 
@@ -34,7 +41,8 @@ auto ex = exchange_money(
    rounding_policy_standard(round_ceiling()));  
 ```
 
-Floating point types are not appropriate for monetary values because they cannot exactly represent real numbers. Over time, or large number of transactions, the small differences can add up to important values. Because of this, the library supports 3rd party libraries that provide better representations, such as boost::multiprecision.
+The examples above use the type `double` for numerical values. This is a floating point type and can only represent exact decimal values for numbers that are a sum of inverse powers of two. That means floating point types can exactly represent values such as 0.5, 1.25, or 42.90625 but cannot do the same for values such as 0.10 or 19.99. Therefore, floating point types are not appropriate for monetary values because they cannot exactly represent most real numbers. This can be an important aspect in financial applications or, in general, in applications that deal with monetary transactions because over time, or over a large number of transactions, the small differences can add up to important values. Because of this, the library supports 3rd party libraries that provide better representations of real numbers, such as `boost::multiprecision`. All the rouding algorithms are specialized for the `boost::multiprecision::cpp_dec_float`, aliased as `decimal`, as shown below.
+
 ```cpp
 using decimal = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<50>>;
 
