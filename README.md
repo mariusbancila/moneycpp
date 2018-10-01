@@ -96,3 +96,34 @@ Apart from the rounding algorithms, the library provides several rounding polici
 | `rounding_policy_to_currency_digits` | Rounding to the number of digits (i.e. minor unit) as defined for the currency |
 
 Any additional user-defined policy can be used instead of the ones supplied with the library.
+
+## Using the library
+The library is composed of several headers and uses C++ 17 features (such as <tt>string_view</tt>, <tt>optional</tt>, structured bindings). You need a compiler that supports these features.
+
+The library works with:
+* the build-in floating point types, `float`, `double`, and `long double`
+* `boost::multiprecision` library, with particular specializations for `boost::multiprecision::cpp_dec_float<50>`, aliased as `decimal`
+* any 3rd library provided that you specialize the rounding function object templates
+
+In order to use `boost::multiprecision` you must:
+* define the macro `USE_BOOST_MULTIPRECISION`
+* make the path to the `boost` library available in the include search path
+
+The library is accompanied by unit tests (build with Catch2). CMake is used for creating projects to build and run the unit tests. You can do the following to build it with support for `boost::multiprecision`:
+* clone or download and unzip the `moneycpp` library
+* create a `build` folder
+* download and unzip [Boost](https://www.boost.org/)
+* run CMake from the `build` folder
+* open the project in the IDE (such as Visual Studio or Xcode), build the project, and run it
+
+Here is an example for creating a project for VS2017 with `boost` available at `C:\libraries\boost_1_68_0`.
+```
+mkdir build
+cd build
+cmake .. -G "Visual Studio 15 2017" -DUSE_BOOST_MULTIPRECISION=ON -DBOOST_INCLUDE_DIR=C:\libraries\boost_1_68_0\
+```
+
+## Related projects
+The following libraries are used:
+* [Catch2](https://github.com/catchorg/Catch2/) - unit testing framework
+* [Boost](https://www.boost.org/) - optional (but recommended) library
