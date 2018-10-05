@@ -139,6 +139,13 @@ namespace moneycpp
       constexpr country_unit IR { 364, "IR", "IRN", "Iran", true };
       constexpr country_unit IQ { 368, "IQ", "IRQ", "Iraq", true };
       constexpr country_unit IE { 372, "IE", "IRL", "Ireland", true };
+      constexpr country_unit IM { 833, "IM", "IMN", "Isle of Man", false };
+      constexpr country_unit IL { 376, "IL", "ISR", "Israel", true };
+      constexpr country_unit IT { 380, "IT", "ITA", "Italy", true };
+      constexpr country_unit JM { 388, "JM", "JAM", "Jamaica", true };
+      constexpr country_unit JP { 392, "JP", "JPN", "Japan", true };
+      constexpr country_unit JE { 832, "JE", "JEY", "Jersey", false };
+      constexpr country_unit JO { 400, "JO", "JOR", "Jordan", true };
       //constexpr country_unit  {  , "", "", "", true };
 
       static const std::initializer_list<country_unit> countries
@@ -151,7 +158,8 @@ namespace moneycpp
          FK, FO, FJ, FI, FR,
          GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, 
          HR, HT, HM, HN, HK, HU, 
-         IO, IS, IN, ID, IR, IQ, IE, 
+         IO, IS, IN, ID, IR, IQ, IE, IM, IL, IT,
+         JM, JP, JE, JO, 
          KH, KY, KM, 
          PF, 
          SV, SZ, 
