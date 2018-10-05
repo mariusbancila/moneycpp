@@ -91,6 +91,54 @@ namespace moneycpp
       constexpr country_unit CW { 531, "CW", "CUW", "Curaçao", false };
       constexpr country_unit CY { 196, "CY", "CYP", "Cyprus", true };
       constexpr country_unit CZ { 203, "CZ", "CZE", "Czechia", true };
+      constexpr country_unit DK { 208, "DK", "DNK", "Demark", true };
+      constexpr country_unit DJ { 262, "DJ", "DJI", "Djibouti", true };
+      constexpr country_unit DM { 212, "DM", "DMA", "Dominica", true };
+      constexpr country_unit DO { 214, "DO", "DOM", "Dominican Republic", true };
+      constexpr country_unit EC { 218, "EC", "ECU", "Ecuador", true };
+      constexpr country_unit EG { 818, "EG", "EGY", "Egypt", true };
+      constexpr country_unit SV { 222, "SV", "SLV", "El Salvador", true };
+      constexpr country_unit GQ { 226, "GQ", "GNQ", "Equatorial Guinea", true };
+      constexpr country_unit ER { 232, "ER", "ERI", "Eritrea", true };
+      constexpr country_unit EE { 233, "EE", "EST", "Estonia", true };
+      constexpr country_unit SZ { 748, "SZ", "SWZ", "Eswatini", true };
+      constexpr country_unit ET { 231, "ET", "ETH", "Ethiopia", true };
+      constexpr country_unit FK { 238, "FK", "FLK", "Falkland Islands", false };
+      constexpr country_unit FO { 234, "FO", "FRO", "Faroe Islands", false };
+      constexpr country_unit FJ { 242, "FJ", "FJI", "Fiji", true };
+      constexpr country_unit FI { 246, "FI", "FIN", "Finland", true };
+      constexpr country_unit FR { 250, "FR", "FRA", "France", true };
+      constexpr country_unit GF { 254, "GF", "GUF", "French Guiana", false };
+      constexpr country_unit PF { 258, "PF", "PYF", "French Polynesia", false };
+      constexpr country_unit TF { 260, "TF", "ATF", "French Southern Territories", false };
+      constexpr country_unit GA { 266, "GA", "GAB", "Gabon", true };
+      constexpr country_unit GM { 270, "GM", "GMB", "Gambia", true };
+      constexpr country_unit GE { 268, "GE", "GEO", "Georgia", true };
+      constexpr country_unit DE { 276, "DE", "DEU", "Germany", true };
+      constexpr country_unit GH { 288, "GH", "GHA", "Ghana", true };
+      constexpr country_unit GI { 292, "GI", "GIB", "Gibraltar", false };
+      constexpr country_unit GR { 300, "GR", "GRC", "Greece", true };
+      constexpr country_unit GL { 304, "GL", "GRL", "Greenland", false };
+      constexpr country_unit GD { 308, "GD", "GRD", "Grenada", true };
+      constexpr country_unit GP { 312, "GP", "GLP", "Guadeloupe", false };
+      constexpr country_unit GU { 316, "GU", "GUM", "Guam", false };
+      constexpr country_unit GT { 320, "GT", "GTM", "Guatemala", true };
+      constexpr country_unit GG { 831, "GG", "GGY", "Guernsey", false };
+      constexpr country_unit GN { 324, "GN", "GIN", "Guinea", true };
+      constexpr country_unit GW { 624, "GW", "GNB", "Guinea-Bissau", true };
+      constexpr country_unit GY { 328, "GY", "GUY", "Guyana", true };
+      constexpr country_unit HT { 332, "HT", "HTI", "Haiti", true };
+      constexpr country_unit HM { 334, "HM", "HMD", "Heard Island and McDonald Islands", false };
+      constexpr country_unit VA { 336, "VA", "VAT", "Vatican", true };
+      constexpr country_unit HN { 340, "HN", "HND", "Honduras", true };
+      constexpr country_unit HK { 344, "HK", "HKG", "Hong Kong", false };
+      constexpr country_unit HU { 348, "HU", "HUN", "Hungary", true };
+      constexpr country_unit IS { 352, "IS", "ISL", "Iceland", true };
+      constexpr country_unit IN { 356, "IN", "IND", "India", true };
+      constexpr country_unit ID { 360, "ID", "IDN", "Indonesia", true };
+      constexpr country_unit IR { 364, "IR", "IRN", "Iran", true };
+      constexpr country_unit IQ { 368, "IQ", "IRQ", "Iraq", true };
+      constexpr country_unit IE { 372, "IE", "IRL", "Ireland", true };
       //constexpr country_unit  {  , "", "", "", true };
 
       static const std::initializer_list<country_unit> countries
@@ -98,11 +146,17 @@ namespace moneycpp
          AF, AX, AL, AS, AD, AO, AI, AQ, AG, AR, AM, AW, AU, AT, AZ,
          BS, BH, BD, BB, BY, BE, BZ, BJ, BM, BT, BO, BQ, BA, BW, BV, BR, BN, BG, BF, BI,
          CV, CM, CA, CF, CL, CN, CX, CC, CO, CG, CD, CK, CR, CI, CU, CW, CY, CZ, 
-         DZ,
-         HR,
-         IO,
+         DZ, DK, DJ, DM, DO, DE, 
+         EC, EG, ER, EE, ET, 
+         FK, FO, FJ, FI, FR,
+         GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, 
+         HR, HT, HM, HN, HK, HU, 
+         IO, IS, IN, ID, IR, IQ, IE, 
          KH, KY, KM, 
-         TD, 
+         PF, 
+         SV, SZ, 
+         TD, TF, 
+         VA, 
       };
    }
 
