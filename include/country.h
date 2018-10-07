@@ -185,6 +185,20 @@ namespace moneycpp
       constexpr country_unit MA { 504, "MA", "MAR", "Morocco", true };
       constexpr country_unit MZ { 508, "MZ", "MOZ", "Mozambique", true };
       constexpr country_unit MM { 104, "MM", "MMR", "Myanmar", true };
+      constexpr country_unit NA { 516, "NA", "NAM", "Namibia", true };
+      constexpr country_unit NR { 520, "NR", "NRU", "Nauru", true };
+      constexpr country_unit NP { 524, "NP", "NPL", "Nepal", true };
+      constexpr country_unit NL { 528, "NL", "NLD", "Netherlands", true };
+      constexpr country_unit NC { 540, "NC", "NCL", "New Caledonia", false };
+      constexpr country_unit NZ { 554, "NZ", "NZL", "New Zealand", true };
+      constexpr country_unit NI { 558, "NI", "NIC", "Nicaragua", true };
+      constexpr country_unit NE { 562, "NE", "NER", "Niger", true };
+      constexpr country_unit NG { 566, "NG", "NGA", "Nigeria", true };
+      constexpr country_unit NU { 570, "NU", "NIU", "Niue", false };
+      constexpr country_unit NF { 574, "NF", "NFK", "Norfolk Island", false };
+      constexpr country_unit MP { 580, "MP", "MNP", "Northern Mariana Islands", false };
+      constexpr country_unit NO { 578, "NO", "NOR", "Norway", true };
+
       //constexpr country_unit  {  , "", "", "", true };
 
       static const std::initializer_list<country_unit> countries
@@ -201,7 +215,8 @@ namespace moneycpp
          JM, JP, JE, JO, 
          KH, KY, KM, KZ, KE, KI, KP, KR, KW, KG, 
          LA, LV, LB, LS, LR, LY, LI, LT, LU,
-         MO, MK, MG, MW, MY, MV, ML, MT, MH, MQ, MR, MU, MX, MD, MC, MN, ME, MS, MA, MZ, MM, 
+         MO, MK, MG, MW, MY, MV, ML, MT, MH, MQ, MR, MU, MX, MD, MC, MN, ME, MS, MA, MZ, MM, MP, 
+         NA, NR, NP, NL, NC, NZ, NI, NE, NG, NU, NF, NO, 
          PF, 
          SV, SZ, 
          TD, TF, 
