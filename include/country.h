@@ -168,6 +168,23 @@ namespace moneycpp
       constexpr country_unit MW { 454, "MW", "MWI", "Malawi", true };
       constexpr country_unit MY { 458, "MY", "MYS", "Malaysia", true };
       constexpr country_unit MV { 462, "MV", "MDV", "Maldives", true };
+      constexpr country_unit ML { 466, "ML", "MLI", "Mali", true };
+      constexpr country_unit MT { 470, "MT", "MLT", "Malta", true };
+      constexpr country_unit MH { 584, "MH", "MHL", "Marshall Islands", true };
+      constexpr country_unit MQ { 474, "MQ", "MTQ", "Martinique", false };
+      constexpr country_unit MR { 478, "MR", "MRT", "Mauritania", true };
+      constexpr country_unit MU { 480, "MU", "MUS", "Mauritius", true };
+      constexpr country_unit YT { 175, "YT", "MYT", "Mayotte", false };
+      constexpr country_unit MX { 484, "MX", "MEX", "Mexico", true };
+      constexpr country_unit FM { 583, "FM", "FSM", "Micronesia", true };
+      constexpr country_unit MD { 498, "MD", "MDA", "Moldova", true };
+      constexpr country_unit MC { 492, "MC", "MCO", "Monaco", true };
+      constexpr country_unit MN { 496, "MN", "MNG", "Mongolia", true };
+      constexpr country_unit ME { 499, "ME", "MNE", "Montenegro", true };
+      constexpr country_unit MS { 500, "MS", "MSR", "Montserrat", false };
+      constexpr country_unit MA { 504, "MA", "MAR", "Morocco", true };
+      constexpr country_unit MZ { 508, "MZ", "MOZ", "Mozambique", true };
+      constexpr country_unit MM { 104, "MM", "MMR", "Myanmar", true };
       //constexpr country_unit  {  , "", "", "", true };
 
       static const std::initializer_list<country_unit> countries
@@ -177,18 +194,19 @@ namespace moneycpp
          CV, CM, CA, CF, CL, CN, CX, CC, CO, CG, CD, CK, CR, CI, CU, CW, CY, CZ, 
          DZ, DK, DJ, DM, DO, DE, 
          EC, EG, ER, EE, ET, 
-         FK, FO, FJ, FI, FR,
+         FK, FO, FJ, FI, FR, FM, 
          GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, 
          HR, HT, HM, HN, HK, HU, 
          IO, IS, IN, ID, IR, IQ, IE, IM, IL, IT,
          JM, JP, JE, JO, 
          KH, KY, KM, KZ, KE, KI, KP, KR, KW, KG, 
          LA, LV, LB, LS, LR, LY, LI, LT, LU,
-         MO, MK, MG, MW, MY, MV, 
+         MO, MK, MG, MW, MY, MV, ML, MT, MH, MQ, MR, MU, MX, MD, MC, MN, ME, MS, MA, MZ, MM, 
          PF, 
          SV, SZ, 
          TD, TF, 
          VA, 
+         YT,
       };
    }
 
