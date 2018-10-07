@@ -146,6 +146,28 @@ namespace moneycpp
       constexpr country_unit JP { 392, "JP", "JPN", "Japan", true };
       constexpr country_unit JE { 832, "JE", "JEY", "Jersey", false };
       constexpr country_unit JO { 400, "JO", "JOR", "Jordan", true };
+      constexpr country_unit KZ { 398, "KZ", "KAZ", "Kazakhstan", true };
+      constexpr country_unit KE { 404, "KE", "KEN", "Kenya", true };
+      constexpr country_unit KI { 296, "KI", "KIR", "Kiribati", true };
+      constexpr country_unit KP { 408, "KP", "PRK", "Democratic People's Republic of Korea", true };
+      constexpr country_unit KR { 410, "KR", "KOR", "Republic of Korea", true };
+      constexpr country_unit KW { 414, "KW", "KWT", "Kuwait", true };
+      constexpr country_unit KG { 417, "KG", "KGZ", "Kyrgystan", true };
+      constexpr country_unit LA { 418, "LA", "LAO", "Lao", true };
+      constexpr country_unit LV { 428, "LV", "LVA", "Latvia", true };
+      constexpr country_unit LB { 422, "LB", "LBN", "Lebanon", true };
+      constexpr country_unit LS { 426, "LS", "LSO", "Lesotho", true };
+      constexpr country_unit LR { 430, "LR", "LBR", "Liberia", true };
+      constexpr country_unit LY { 434, "LY", "LBY", "Libya", true };
+      constexpr country_unit LI { 438, "LI", "LIE", "Liechtenstein", true };
+      constexpr country_unit LT { 440, "LT", "LTU", "Lithuania", true };
+      constexpr country_unit LU { 442, "LU", "LUX", "Luxembourg", true };
+      constexpr country_unit MO { 446, "MO", "MAC", "Macao", false };
+      constexpr country_unit MK { 807, "MK", "MKD", "Macedonia", true };
+      constexpr country_unit MG { 450, "MG", "MDG", "Madagascar", true };
+      constexpr country_unit MW { 454, "MW", "MWI", "Malawi", true };
+      constexpr country_unit MY { 458, "MY", "MYS", "Malaysia", true };
+      constexpr country_unit MV { 462, "MV", "MDV", "Maldives", true };
       //constexpr country_unit  {  , "", "", "", true };
 
       static const std::initializer_list<country_unit> countries
@@ -160,7 +182,9 @@ namespace moneycpp
          HR, HT, HM, HN, HK, HU, 
          IO, IS, IN, ID, IR, IQ, IE, IM, IL, IT,
          JM, JP, JE, JO, 
-         KH, KY, KM, 
+         KH, KY, KM, KZ, KE, KI, KP, KR, KW, KG, 
+         LA, LV, LB, LS, LR, LY, LI, LT, LU,
+         MO, MK, MG, MW, MY, MV, 
          PF, 
          SV, SZ, 
          TD, TF, 
