@@ -198,30 +198,86 @@ namespace moneycpp
       constexpr country_unit NF { 574, "NF", "NFK", "Norfolk Island", false };
       constexpr country_unit MP { 580, "MP", "MNP", "Northern Mariana Islands", false };
       constexpr country_unit NO { 578, "NO", "NOR", "Norway", true };
+      constexpr country_unit OM { 512, "OM", "OMN", "Oman", true };
+      constexpr country_unit PK { 586, "PK", "PAK", "Pakistan", true };
+      constexpr country_unit PW { 585, "PW", "PLW", "Palau", true };
+      constexpr country_unit PS { 275, "PS", "PSE", "Palestine", false };
+      constexpr country_unit PA { 591, "PA", "PAN", "Panama", true };
+      constexpr country_unit PG { 598, "PG", "PNG", "Papua New Guinea", true };
+      constexpr country_unit PY { 600, "PY", "PRY", "Paraguay", true };
+      constexpr country_unit PE { 604, "PE", "PER", "Peru", true };
+      constexpr country_unit PH { 608, "PH", "PHL", "Philippines", true };
+      constexpr country_unit PN { 612, "PN", "PCN", "Pitcairn", false };
+      constexpr country_unit PL { 616, "PL", "POL", "Poland", true };
+      constexpr country_unit PT { 620, "PT", "PRT", "Portugal", true };
+      constexpr country_unit PR { 630, "PR", "PRI", "Puerto Rico", false };
+      constexpr country_unit QA { 634, "QA", "QAT", "Qatar", true };
+      constexpr country_unit RE { 638, "RE", "REU", "Reunion", false };
+      constexpr country_unit RO { 642, "RO", "ROU", "Romania", true };
+      constexpr country_unit RU { 643, "RU", "RUS", "Russian Federation", true };
+      constexpr country_unit RW { 646, "RW", "RWA", "Rwanda", true };
+      constexpr country_unit BL { 652, "BL", "BLM", "Saint Barthelemy", false };
+      constexpr country_unit SH { 654, "SH", "SHN", "Saint Helena, Ascension and Tristan da Cunha", false };
+      constexpr country_unit KN { 659, "KN", "KNA", "Saint Kitts and Nevis", true };
+      constexpr country_unit LC { 662, "LC", "LCA", "Saint Lucia", true };
+      constexpr country_unit MF { 663, "MF", "MAF", "Saint Martin", false };
+      constexpr country_unit PM { 666, "PM", "SPM", "Saint Pierre and Miquelon", false };
+      constexpr country_unit VC { 670, "VC", "VCT", "Saint Vincent and the Grenadines", true };
+      constexpr country_unit WS { 882, "WS", "WSM", "Samoa", true };
+      constexpr country_unit SM { 674, "SM", "SMR", "San Marino", true };
+      constexpr country_unit ST { 678, "ST", "STP", "San Tome and Principe", true };
+      constexpr country_unit SA { 682, "SA", "SAU", "Saudi Arabia", true };
+      constexpr country_unit SN { 686, "SN", "Sen", "Senegal", true };
+      constexpr country_unit RS { 688, "RS", "SRB", "Serbia", true };
+      constexpr country_unit SC { 690, "SC", "Syc", "Seychelles", true };
+      constexpr country_unit SL { 694, "SL", "SLE", "Sierra Leone", true };
+      constexpr country_unit SG { 702, "SG", "SGP", "Singapore", true };
+      constexpr country_unit SX { 534, "SX", "SXM", "Sint Maarten", false };
+      constexpr country_unit SK { 703, "SK", "SVK", "Slovakia", true };
+      constexpr country_unit SI { 705, "SI", "SVN", "Slovenia", true };
+      constexpr country_unit SB {  90, "SB", "SLB", "Solomon Islands", true };
+      constexpr country_unit SO { 706, "SO", "SOM", "Somalia", true };
+      constexpr country_unit ZA { 710, "ZA", "ZAF", "South Africa", true };
+      constexpr country_unit GS { 239, "GS", "SGS", "South Georgia and the South Sandwich Islands", false };
+      constexpr country_unit SS { 728, "SS", "SSD", "South Sudan", true };
+      constexpr country_unit ES { 724, "ES", "ESP", "Spain", true };
+      constexpr country_unit LK { 144, "LK", "LKA", "Sri Lanka", true };
+      constexpr country_unit SD { 729, "SD", "SDN", "Sudan", true };
+      constexpr country_unit SR { 740, "SR", "SUR", "Suriname", true };
+      constexpr country_unit SJ { 744, "SJ", "SJM", "Svalbard and Jan Mayen", false };
+      constexpr country_unit SE { 752, "SE", "SWE", "Sweden", true };
+      constexpr country_unit CH { 756, "CH", "CHE", "Switzerland", true };
+      constexpr country_unit SY { 760, "SY", "SYR", "Syrian Arab Republic", true };
+
 
       //constexpr country_unit  {  , "", "", "", true };
 
       static const std::initializer_list<country_unit> countries
       {
          AF, AX, AL, AS, AD, AO, AI, AQ, AG, AR, AM, AW, AU, AT, AZ,
-         BS, BH, BD, BB, BY, BE, BZ, BJ, BM, BT, BO, BQ, BA, BW, BV, BR, BN, BG, BF, BI,
-         CV, CM, CA, CF, CL, CN, CX, CC, CO, CG, CD, CK, CR, CI, CU, CW, CY, CZ, 
+         BS, BH, BD, BB, BY, BE, BZ, BJ, BM, BT, BO, BQ, BA, BW, BV, BR, BN, BG, BF, BI, BL, 
+         CV, CM, CA, CF, CL, CN, CX, CC, CO, CG, CD, CK, CR, CI, CU, CW, CY, CZ, CH, 
          DZ, DK, DJ, DM, DO, DE, 
-         EC, EG, ER, EE, ET, 
+         EC, EG, ER, EE, ET, ES, 
          FK, FO, FJ, FI, FR, FM, 
-         GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, 
+         GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, GS, 
          HR, HT, HM, HN, HK, HU, 
          IO, IS, IN, ID, IR, IQ, IE, IM, IL, IT,
          JM, JP, JE, JO, 
-         KH, KY, KM, KZ, KE, KI, KP, KR, KW, KG, 
-         LA, LV, LB, LS, LR, LY, LI, LT, LU,
-         MO, MK, MG, MW, MY, MV, ML, MT, MH, MQ, MR, MU, MX, MD, MC, MN, ME, MS, MA, MZ, MM, MP, 
+         KH, KY, KM, KZ, KE, KI, KP, KR, KW, KG, KN, 
+         LA, LV, LB, LS, LR, LY, LI, LT, LU, LC, LK, 
+         MO, MK, MG, MW, MY, MV, ML, MT, MH, MQ, MR, MU, MX, MD, MC, MN, ME, MS, MA, MZ, MM, MP, MF, 
          NA, NR, NP, NL, NC, NZ, NI, NE, NG, NU, NF, NO, 
-         PF, 
-         SV, SZ, 
+         OM, 
+         PF, PK, PW, PS, PA, PG, PY, PE, PH, PN, PL, PT, PR, PM, 
+         QA, 
+         RE, RO, RU, RW, RS, 
+         SV, SZ, SH, SM, ST, SA, SN, SC, SL, SG, SX, SK, SI, SB, SO, SS, SD, SR, SJ, SE, SY, 
          TD, TF, 
-         VA, 
+         VA, VC, 
          YT,
+         WS, 
+         ZA, 
       };
    }
 
