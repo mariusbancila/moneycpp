@@ -15,6 +15,10 @@ TEST_CASE("Make money", "[money]")
    auto m1 = make_money(20.0, currency::USD);
    REQUIRE(m1.amount == 20.0);
    REQUIRE(m1.currency == currency::USD);
+
+   auto m2 = make_money(20.0, find_currency("USD").value());
+   REQUIRE(m2.amount == 20.0);
+   REQUIRE(m2.currency == currency::USD);
 }
 
 TEST_CASE("Equality money", "[money]")

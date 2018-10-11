@@ -67,6 +67,12 @@ TEST_CASE("Test find country", "[find][country]")
       auto cu2 = find_country(1);
       REQUIRE(!cu2.has_value());
    }
+
+   {
+      auto cu1 = find_country("US");
+      auto cu2 = find_country(840);
+      REQUIRE(cu1 == cu2);
+   }
 }
 
 TEST_CASE("Test find country iter", "[find][country]")
@@ -100,4 +106,23 @@ TEST_CASE("Test find country iter", "[find][country]")
          1);
       REQUIRE(cu2 == std::cend(country::countries));
    }
+}
+
+TEST_CASE("Test find my country", "[find][country]")
+{
+   std::vector<country_unit> my_countries{country::countries};
+   my_countries.emplace_back(country_unit{ 1001, "OT", "OTH", "Otheria", true });
+
+   auto cu1 = find_country(
+      std::cbegin(my_countries),
+      std::cend(my_countries),
+      "OT");
+
+   auto cu2 = find_country(
+      std::cbegin(my_countries),
+      std::cend(my_countries),
+      1001);
+
+   REQUIRE(cu1 != std::cend(my_countries));
+   REQUIRE(cu1 == cu2);
 }

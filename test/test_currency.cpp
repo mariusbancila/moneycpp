@@ -65,6 +65,12 @@ TEST_CASE("Test find currency", "[find][currency]")
       auto cu2 = find_currency(1);
       REQUIRE(!cu2.has_value());
    }
+
+   {
+      auto cu1 = find_currency("EUR");
+      auto cu2 = find_currency(978);
+      REQUIRE(cu1 == cu2);
+   }
 }
 
 TEST_CASE("Test find currency iter", "[find][currency]")
@@ -98,4 +104,23 @@ TEST_CASE("Test find currency iter", "[find][currency]")
          1);
       REQUIRE(cu2 == std::cend(currency::currencies));
    }
+}
+
+TEST_CASE("Test find my currency", "[find][currency]")
+{
+   std::vector<currency_unit> my_currencies{ currency::currencies };
+   my_currencies.emplace_back(currency_unit{ "VIR", 1001, 2, "Virtual Currency" });
+
+   auto cu1 = find_currency(
+      std::cbegin(my_currencies),
+      std::cend(my_currencies),
+      "VIR");
+
+   auto cu2 = find_currency(
+      std::cbegin(my_currencies),
+      std::cend(my_currencies),
+      1001);
+
+   REQUIRE(cu1 != std::cend(my_currencies));
+   REQUIRE(cu1 == cu2);
 }
