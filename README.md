@@ -23,7 +23,10 @@ The library is built around several core components:
 * rounding algorithms - that specify how values are rounded, and policies - that specify how monetary values are rounded using a rounding algorithm
 
 ## Library API
-The following are examples for using the library:
+### Monetary values
+
+A monetary value has two dimensions: the actual amount and the currency that it represents. A monetary value is represented by `money` class.
+The following are examples for working with monetary values:
 
 ```cpp
 // create and operate with money values
@@ -57,6 +60,35 @@ auto ex = exchange_money(
    rounding_policy_to_currency_digits(round_half_even()));
 ```
 
+### Countries and Currencies
+The library provides a full database of ISO recognized countries and currencies and functions to look them up. Information about a country is represented by the `country_unit` class and information about a currency by the `currency_unit` class. Below are several examples for searching these lists:
+
+```cpp
+auto cu1 = find_country("US");
+auto cu2 = find_country(840);
+assert(cu1 == cu2);
+assert(cu1.value().alpha2 == "US")
+```
+```cpp
+auto cu1 = find_currency("EUR");
+auto cu2 = find_currency(978);
+assert(cu1 == cu2);
+assert(cu1.value().code == "EUR");
+```
+
+The built-in databases for countries and currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to defind the range to search.
+```cpp
+std::vector<currency_unit> my_currencies{ currency::currencies };
+my_currencies.emplace_back(currency_unit{ "VIR", 1001, 2, "Virtual Currency" });
+
+auto cu1 = find_currency(std::cbegin(my_currencies), std::cend(my_currencies), "VIR");
+auto cu2 = find_currency(std::cbegin(my_currencies), std::cend(my_currencies), 1001);
+
+assert(cu1 != std::cend(my_currencies));
+assert(cu1 == cu2);
+assert(cu1->alpha2 == "VIR");
+```
+
 ## Rounding
 Several rounding algorithms are provided with the library. These algorithms transform a numerical value from a greater precision (e.g. 19.99128) to a lesser precision (e.g. 19.99). In addition to these, any user-defined rounding algorithm can be used with the library. The rounding algorithms, implemented as functors, are as follows:
 
@@ -74,7 +106,7 @@ Several rounding algorithms are provided with the library. These algorithms tran
 
 The following is a table with numerical examples for each rounding algorithm:
 
-|  | -5.5 | -2.5 | -1.6 | -1.1 | -1.0 | 1.0 | 1.1 | 1.6 | 2.5 | 5.5 |
+| Algorithm / Value | -5.5 | -2.5 | -1.6 | -1.1 | -1.0 | 1.0 | 1.1 | 1.6 | 2.5 | 5.5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Up | -6.0 | -3.0 | -2.0 | -2.0 | -1.0 | 1.0 | 2.0 | 2.0 | 3.0 | 6.0 |
 | Down | -5.0 | -2.0 | -1.0 | -1.0 | -1.0 | 1.0 | 1.0 | 1.0 | 2.0 | 5.0 |
