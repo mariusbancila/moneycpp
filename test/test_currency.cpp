@@ -66,3 +66,36 @@ TEST_CASE("Test find currency", "[find][currency]")
       REQUIRE(!cu2.has_value());
    }
 }
+
+TEST_CASE("Test find currency iter", "[find][currency]")
+{
+   {
+      auto cu1 = find_currency(
+         std::cbegin(currency::currencies),
+         std::cend(currency::currencies),
+         "USD");
+      REQUIRE(cu1 != std::cend(currency::currencies));
+      REQUIRE(*cu1 == currency::USD);
+
+      auto cu2 = find_currency(
+         std::cbegin(currency::currencies),
+         std::cend(currency::currencies), 
+         "DSU");
+      REQUIRE(cu2 == std::cend(currency::currencies));
+   }
+
+   {
+      auto cu1 = find_currency(
+         std::cbegin(currency::currencies),
+         std::cend(currency::currencies), 
+         840);
+      REQUIRE(cu1 != std::cend(currency::currencies));
+      REQUIRE(*cu1 == currency::USD);
+
+      auto cu2 = find_currency(
+         std::cbegin(currency::currencies),
+         std::cend(currency::currencies), 
+         1);
+      REQUIRE(cu2 == std::cend(currency::currencies));
+   }
+}

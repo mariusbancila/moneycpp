@@ -274,23 +274,52 @@ namespace moneycpp
       };
    }
 
+   template <typename Iter>
+   inline Iter find_currency(Iter first, Iter last, std::string_view code)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->code == code)
+            return it;
+      }
+
+      return last;
+   }
+
    inline std::optional<currency_unit> find_currency(std::string_view code)
    {
-      for (auto const & cu : currency::currencies)
-      {
-         if (cu.code == code)
-            return std::optional{ cu };
-      }
+      auto it = find_currency(
+         std::cbegin(currency::currencies),
+         std::cend(currency::currencies),
+         code);
+
+      if (it != std::cend(currency::currencies))
+         return std::optional<currency_unit>{ *it };
+
       return {};
+   }
+
+   template <typename Iter>
+   inline Iter find_currency(Iter first, Iter last, int const number)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->number == number)
+            return it;
+      }
+
+      return last;
    }
 
    inline std::optional<currency_unit> find_currency(int const number)
    {
-      for (auto const & cu : currency::currencies)
-      {
-         if (cu.number == number)
-            return std::optional{ cu };
-      }
+      auto it = find_currency(
+         std::cbegin(currency::currencies),
+         std::cend(currency::currencies),
+         number);
+
+      if (it != std::cend(currency::currencies))
+         return std::optional<currency_unit>{ *it };
 
       return {};
    }

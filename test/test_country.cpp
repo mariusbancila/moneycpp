@@ -68,3 +68,36 @@ TEST_CASE("Test find country", "[find][country]")
       REQUIRE(!cu2.has_value());
    }
 }
+
+TEST_CASE("Test find country iter", "[find][country]")
+{
+   {
+      auto cu1 = find_country(
+         std::cbegin(country::countries),
+         std::cend(country::countries),
+         "AU");
+      REQUIRE(cu1 != std::cend(country::countries));
+      REQUIRE(*cu1 == country::AU);
+
+      auto cu2 = find_country(
+         std::cbegin(country::countries),
+         std::cend(country::countries), 
+         "AA");
+      REQUIRE(cu2 == std::cend(country::countries));
+   }
+
+   {
+      auto cu1 = find_country(
+         std::cbegin(country::countries),
+         std::cend(country::countries), 
+         36);
+      REQUIRE(cu1 != std::cend(country::countries));
+      REQUIRE(*cu1 == country::AU);
+
+      auto cu2 = find_country(
+         std::cbegin(country::countries),
+         std::cend(country::countries), 
+         1);
+      REQUIRE(cu2 == std::cend(country::countries));
+   }
+}

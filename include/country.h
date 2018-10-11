@@ -311,23 +311,52 @@ namespace moneycpp
       };
    }
 
+   template <typename Iter>
+   inline Iter find_country(Iter first, Iter last, int const code)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->code == code)
+            return it;
+      }
+
+      return last;
+   }
+
    inline std::optional<country_unit> find_country(int const code)
    {
-      for (auto const & cu : country::countries)
-      {
-         if (cu.code == code)
-            return std::optional{ cu };
-      }
+      auto it = find_country(
+         std::cbegin(country::countries),
+         std::cend(country::countries),
+         code);
+
+      if (it != std::cend(country::countries))
+         return std::optional<country_unit>{ *it };
+
       return {};
+   }
+
+   template <typename Iter>
+   inline Iter find_country(Iter first, Iter last, std::string_view alpha2)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->alpha2 == alpha2)
+            return it;
+      }
+
+      return last;
    }
 
    inline std::optional<country_unit> find_country(std::string_view alpha2)
    {
-      for (auto const & cu : country::countries)
-      {
-         if (cu.alpha2 == alpha2)
-            return std::optional{ cu };
-      }
+      auto it = find_country(
+         std::cbegin(country::countries),
+         std::cend(country::countries),
+         alpha2);
+
+      if (it != std::cend(country::countries))
+         return std::optional<country_unit>{ *it };
 
       return {};
    }
