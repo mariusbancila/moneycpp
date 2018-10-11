@@ -248,19 +248,48 @@ namespace moneycpp
       constexpr country_unit SE { 752, "SE", "SWE", "Sweden", true };
       constexpr country_unit CH { 756, "CH", "CHE", "Switzerland", true };
       constexpr country_unit SY { 760, "SY", "SYR", "Syrian Arab Republic", true };
-
-
-      //constexpr country_unit  {  , "", "", "", true };
+      constexpr country_unit TW { 158, "TW", "TWN", "Taiwan", false };
+      constexpr country_unit TJ { 762, "TJ", "TJK", "Tajikistan", true };
+      constexpr country_unit TZ { 834, "TZ", "TZA", "Tanzania", true };
+      constexpr country_unit TH { 764, "TH", "THA", "Thailand", true };
+      constexpr country_unit TL { 626, "TL", "TLS", "Timor-Leste", true };
+      constexpr country_unit TG { 768, "TG", "TGO", "Togo", true };
+      constexpr country_unit TK { 772, "TK", "TKL", "Tokelau", false };
+      constexpr country_unit TO { 776, "TO", "TON", "Tonga", true };
+      constexpr country_unit TT { 780, "TT", "TTO", "Trinidad and Tobago", true };
+      constexpr country_unit TN { 788, "TN", "TUN", "Tunisia", true };
+      constexpr country_unit TR { 792, "TR", "TUR", "Turkey", true };
+      constexpr country_unit TM { 795, "TM", "TKM", "Turkmenistan", true };
+      constexpr country_unit TC { 796, "TC", "TCA", "Turks and Caicos Islands", false };
+      constexpr country_unit TV { 798, "TV", "TUV", "Tuvalu", true };
+      constexpr country_unit UG { 800, "UG", "UGA", "Uganda", true };
+      constexpr country_unit UA { 804, "UA", "UKR", "Ukraine", true };
+      constexpr country_unit AE { 784, "AE", "ARE", "United Arab Emirates", true };
+      constexpr country_unit GB { 826, "GB", "GBR", "United Kingdom of Great Britain and Northern Ireland", true };
+      constexpr country_unit US { 840, "US", "USA", "United States of America", true };
+      constexpr country_unit UM { 581, "UM", "UMI", "United States Minor Outlying Islands", false };
+      constexpr country_unit UY { 858, "UY", "URY", "Uruguay", true };
+      constexpr country_unit UZ { 860, "UZ", "UZB", "Uzbekistan", true };
+      constexpr country_unit VU { 548, "VU", "VUT", "Vanuatu", true };
+      constexpr country_unit VE { 862, "VE", "VEN", "Venezuela", true };
+      constexpr country_unit VN { 704, "VN", "VNM", "Viet Nam", true };
+      constexpr country_unit VG {  92, "VG", "VGB", "Virgin Islands (British)", false };
+      constexpr country_unit VI { 850, "VI", "VIR", "Virgin Islands (U.S.)", false };
+      constexpr country_unit WF { 876, "WF", "WLF", "Wallis and Furtuna", false };
+      constexpr country_unit EH { 732, "EH", "ESH", "Western Sahara", false };
+      constexpr country_unit YE { 887, "YE", "YEM", "Yemen", true };
+      constexpr country_unit ZM { 894, "ZM", "ZMB", "Zambia", true };
+      constexpr country_unit ZW { 716, "ZW", "ZWE", "Zimbabwe", true };
 
       static const std::initializer_list<country_unit> countries
       {
-         AF, AX, AL, AS, AD, AO, AI, AQ, AG, AR, AM, AW, AU, AT, AZ,
+         AF, AX, AL, AS, AD, AO, AI, AQ, AG, AR, AM, AW, AU, AT, AZ, AE, 
          BS, BH, BD, BB, BY, BE, BZ, BJ, BM, BT, BO, BQ, BA, BW, BV, BR, BN, BG, BF, BI, BL, 
          CV, CM, CA, CF, CL, CN, CX, CC, CO, CG, CD, CK, CR, CI, CU, CW, CY, CZ, CH, 
          DZ, DK, DJ, DM, DO, DE, 
-         EC, EG, ER, EE, ET, ES, 
+         EC, EG, ER, EE, ET, ES, EH, 
          FK, FO, FJ, FI, FR, FM, 
-         GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, GS, 
+         GQ, GF, GA, GM, GE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, GS, GB, 
          HR, HT, HM, HN, HK, HU, 
          IO, IS, IN, ID, IR, IQ, IE, IM, IL, IT,
          JM, JP, JE, JO, 
@@ -273,11 +302,12 @@ namespace moneycpp
          QA, 
          RE, RO, RU, RW, RS, 
          SV, SZ, SH, SM, ST, SA, SN, SC, SL, SG, SX, SK, SI, SB, SO, SS, SD, SR, SJ, SE, SY, 
-         TD, TF, 
-         VA, VC, 
-         YT,
-         WS, 
-         ZA, 
+         TD, TF, TW, TJ, TZ, TH, TL, TG, TK, TO, TT, TN, TR, TM, TC, TV, 
+         UA, UG, US, UM, UY, UZ, 
+         VA, VC, VU, VE, VN, VG, VI, 
+         YT, YE, 
+         WS, WF, 
+         ZA, ZM, ZW, 
       };
    }
 

@@ -55,7 +55,7 @@ TEST_CASE("Test find country", "[find][country]")
       REQUIRE(cu1.has_value());
       REQUIRE(cu1.value() == country::AU);
 
-      auto cu2 = find_country("UA");
+      auto cu2 = find_country("AA");
       REQUIRE(!cu2.has_value());
    }
 
