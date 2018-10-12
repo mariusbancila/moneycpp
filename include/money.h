@@ -160,4 +160,16 @@ namespace moneycpp
 
       return result;
    }
+
+   template <typename TValue>
+   inline money<TValue> const & min(money<TValue> const & a, money<TValue> const & b)
+   {
+      return (a < b) ? a : b;
+   }
+
+   template <typename TValue>
+   inline money<TValue> const & max(money<TValue> const & a, money<TValue> const & b)
+   {
+      return (a > b) ? a : b;
+   }
 }

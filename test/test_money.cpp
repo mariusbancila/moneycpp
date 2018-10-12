@@ -235,3 +235,25 @@ TEST_CASE("Test exchange extra decimals", "[exchange]")
       REQUIRE_EQ(m2.amount, result);
    }
 }
+
+TEST_CASE("Test min", "[money]")
+{
+   auto m1 = make_money(20.0, currency::USD);
+   auto m2 = make_money(30.25, currency::USD);
+   auto m3 = make_money(42.5, currency::EUR);
+
+   auto const & r = min(m1, m2);
+   REQUIRE(r == m1);
+   REQUIRE_THROWS_AS(min(m1, m3), currency_mismatch_error);
+}
+
+TEST_CASE("Test max", "[money]")
+{
+   auto m1 = make_money(20.0, currency::USD);
+   auto m2 = make_money(30.25, currency::USD);
+   auto m3 = make_money(42.5, currency::EUR);
+
+   auto const & r = max(m1, m2);
+   REQUIRE(r == m2);
+   REQUIRE_THROWS_AS(max(m1, m3), currency_mismatch_error);
+}
