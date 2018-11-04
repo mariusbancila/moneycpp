@@ -15,7 +15,7 @@ namespace moneycpp
       bool             const independent;
    };
 
-   constexpr bool operator==(country_unit const & lhs, country_unit const & rhs) noexcept
+   inline constexpr bool operator==(country_unit const & lhs, country_unit const & rhs) noexcept
    {
       return
          lhs.code == rhs.code &&
@@ -23,9 +23,14 @@ namespace moneycpp
          lhs.alpha3 == rhs.alpha3;
    }
 
-   constexpr bool operator!=(country_unit const & lhs, country_unit const & rhs) noexcept
+   inline constexpr bool operator!=(country_unit const & lhs, country_unit const & rhs) noexcept
    {
       return !(lhs == rhs);
+   }
+
+   inline constexpr bool operator<(country_unit const & lhs, country_unit const & rhs) noexcept
+   {
+      return lhs.code < rhs.code;
    }
 
    namespace country

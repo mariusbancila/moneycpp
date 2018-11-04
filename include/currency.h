@@ -14,7 +14,7 @@ namespace moneycpp
       std::string_view const name;
    };
 
-   constexpr bool operator==(currency_unit const & lhs, currency_unit const & rhs) noexcept
+   inline constexpr bool operator==(currency_unit const & lhs, currency_unit const & rhs) noexcept
    {
       return 
          lhs.number == rhs.number &&
@@ -23,9 +23,14 @@ namespace moneycpp
          lhs.name == rhs.name;
    }
 
-   constexpr bool operator!=(currency_unit const & lhs, currency_unit const & rhs) noexcept
+   inline constexpr bool operator!=(currency_unit const & lhs, currency_unit const & rhs) noexcept
    {
       return !(lhs == rhs);
+   }
+
+   inline constexpr bool operator<(currency_unit const & lhs, currency_unit const & rhs) noexcept
+   {
+      return lhs.number < rhs.number;
    }
 
    namespace currency
