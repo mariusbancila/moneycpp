@@ -68,6 +68,7 @@ The library provides a full database of ISO recognized countries and currencies 
 auto cu1 = find_country("US");
 auto cu2 = find_country(840);
 assert(cu1 == cu2);
+assert(c1 == country::US);
 assert(cu1.value().alpha2 == "US")
 ```
 ```cpp
@@ -75,6 +76,7 @@ assert(cu1.value().alpha2 == "US")
 auto cu1 = find_currency("EUR");
 auto cu2 = find_currency(978);
 assert(cu1 == cu2);
+assert(cu1 == currency::EUR);
 assert(cu1.value().code == "EUR");
 ```
 
