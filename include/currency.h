@@ -342,10 +342,17 @@ namespace moneycpp
       }
    };
 
-   struct currency_mismatch_error : bad_currency_error
+   struct currency_mismatch_error : public bad_currency_error
    {
       currency_mismatch_error()
          : bad_currency_error("Currencies do not match") 
+      {}
+   };
+
+   struct currency_not_found : public bad_currency_error
+   {
+      currency_not_found()
+         : bad_currency_error("Currency not found")
       {}
    };
 }

@@ -64,7 +64,7 @@ namespace moneycpp
       constexpr country_unit BT {  64, "BT", "BTN", "Bhutan", true };
       constexpr country_unit BO {  68, "BO", "BOL", "Bolivia", true };
       constexpr country_unit BQ { 535, "BQ", "BES", "Bonaire, Sint Eustatius and Saba", false };
-      constexpr country_unit BA {  70, "BA", "BIH", "Bosmia and Herzegovina", true };
+      constexpr country_unit BA {  70, "BA", "BIH", "Bosnia and Herzegovina", true };
       constexpr country_unit BW {  72, "BW", "BWA", "Botswana", true };
       constexpr country_unit BV {  74, "BV", "BVT", "Bouvet Island", false };
       constexpr country_unit BR {  76, "BR", "BRA", "Brazil", true };
