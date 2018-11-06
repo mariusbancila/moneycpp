@@ -64,16 +64,35 @@ auto ex = exchange_money(
 The library provides a full database of ISO recognized countries and currencies and functions to look them up. Information about a country is represented by the `country_unit` class and information about a currency by the `currency_unit` class. Below are several examples for searching these lists:
 
 ```cpp
+// finding a currency
 auto cu1 = find_country("US");
 auto cu2 = find_country(840);
 assert(cu1 == cu2);
 assert(cu1.value().alpha2 == "US")
 ```
 ```cpp
+// finding a country
 auto cu1 = find_currency("EUR");
 auto cu2 = find_currency(978);
 assert(cu1 == cu2);
 assert(cu1.value().code == "EUR");
+```
+
+```cpp
+// finding the currency of a country
+auto cu1 = country::find_country_currency(country::AF);
+assert(cu1 == currency::AFN);
+
+auto cu2 = country::find_country_currency(country::BO);
+assert(cu2 == currency::BOB);
+```
+
+```cpp
+// finding all the currencies from a country 
+auto s = country::find_country_currencies(country::BO);
+assert(s.size() == 2);
+assert(*s.begin() == currency::BOB);
+assert(*std::next(s.begin()) == currency::BOV);
 ```
 
 The built-in databases for countries and currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to defind the range to search.
