@@ -241,6 +241,8 @@ namespace moneycpp
       constexpr currency_unit XRP  { "XRP",  0,  6, "Ripple" };
       constexpr currency_unit ZEC  { "ZEC",  0,  8, "Zcash" };
 
+      constexpr currency_unit NONE { std::string_view{}, 0, 0, std::string_view{} };
+
       static const std::initializer_list<currency_unit> currencies
       {
          // official

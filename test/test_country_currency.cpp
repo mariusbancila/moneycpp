@@ -86,3 +86,22 @@ TEST_CASE("Find main country currency test", "[country][currency]")
    REQUIRE(country::find_country_currency(country::BO) == currency::BOB);
    REQUIRE_THROWS_AS(country::find_country_currency(country::AQ), currency_not_found);
 }
+
+TEST_CASE("Check orphan countries", "[country][currency]")
+{
+   std::set<country_unit> unique_countries;
+   for (auto const & kvp : country::currencies)
+      unique_countries.insert(kvp.first);
+
+   std::set<country_unit> all_countries{country::countries};
+
+   std::vector<country_unit> diff;
+
+   std::set_difference(
+      std::begin(all_countries), std::end(all_countries),
+      std::begin(unique_countries), std::end(unique_countries),
+      std::back_inserter(diff));
+
+   REQUIRE(diff.size() == 1);
+   REQUIRE(diff[0] == country::AQ);
+}

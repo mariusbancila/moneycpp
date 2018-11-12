@@ -149,12 +149,12 @@ namespace moneycpp
          {IN, INR},  // India
          {ID, IDR},  // Indonesia
          {IR, IRR},  // Iran
-         {IR, IQD},  // Iraq
-         {IQ, EUR},  // Ireland
-         {IE, GBP},  // Isle of Man (UK)
-         {IE, IMP},  // Isle of Man (UK)
-         {IM, ILS},  // Israel
-         {IL, EUR},  // Italy
+         {IQ, IQD},  // Iraq
+         {IE, EUR},  // Ireland
+         {IM, GBP},  // Isle of Man (UK)
+         {IM, IMP},  // Isle of Man (UK)
+         {IL, ILS},  // Israel
+         {IT, EUR},  // Italy
 
                      // J
          {JM, JMD},  // Jamaica
@@ -169,8 +169,7 @@ namespace moneycpp
          {KI, AUD},  // Kiribati
          {KP, KPW},  // Democratic People's Republic of Korea
          {KR, KRW},  // Republic of Korea
-         {KP, EUR},  // Kosovo
-         {KR, KWD},  // Kuwait
+         {KW, KWD},  // Kuwait
          {KG, KGS},  // Kyrgyzstan
 
                      // L
@@ -198,7 +197,7 @@ namespace moneycpp
          {MQ, EUR},  // Martinique (France)
          {MR, MRU},  // Mauritania
          {MU, MUR},  // Mauritius
-         {MY, EUR},  // Mayotte (France)
+         {YT, EUR},  // Mayotte (France)
          {MX, MXN},  // Mexico
          {MX, MXV},  // Mexico
          {FM, USD},  // Micronesia
