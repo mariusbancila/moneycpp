@@ -143,6 +143,92 @@ namespace moneycpp
          {HK, HKD},  // Hong Kong (China)
          {HU, HUF},  // Hungary
 
+                     // I
+         {IS, ISK},  // Iceland
+         {IN, INR},  // India
+         {ID, IDR},  // Indonesia
+         {IR, IRR},  // Iran
+         {IR, IQD},  // Iraq
+         {IQ, EUR},  // Ireland
+         {IE, GBP},  // Isle of Man (UK)
+         {IE, IMP},  // Isle of Man (UK)
+         {IM, ILS},  // Israel
+         {IL, EUR},  // Italy
+
+                     // J
+         {JM, JMD},  // Jamaica
+         {JP, JPY},  // Japan
+         {JE, GBP},  // Jersey (UK)	
+         {JE, JEP},  // Jersey (UK)	
+         {JO, JOD},  // Jordan
+
+                     // K
+         {KZ, KZT},  // Kazakhstan
+         {KE, KES},  // Kenya
+         {KI, AUD},  // Kiribati
+         {KP, KPW},  // Democratic People's Republic of Korea
+         {KR, KRW},  // Republic of Korea
+         {KP, EUR},  // Kosovo
+         {KR, KWD},  // Kuwait
+         {KG, KGS},  // Kyrgyzstan
+
+                     // L
+         {LA, LAK},  // Laos
+         {LV, EUR},  // Latvia
+         {LB, LBP},  // Lebanon
+         {LS, LSL},  // Lesotho
+         {LS, ZAR},  // Lesotho
+         {LR, LRD},  // Liberia
+         {LY, LYD},  // Libya
+         {LI, CHF},  // Liechtenstein
+         {LT, EUR},  // Lithuania
+         {LU, EUR},  // Luxembourg
+
+                     // M
+         {MO, MOP},  // Macau (China)
+         {MK, MKD},  // Macedonia (FYROM)
+         {MG, MGA},  // Madagascar
+         {MW, MWK},  // Malawi
+         {MY, MYR},  // Malaysia
+         {MV, MVR},  // Maldives
+         {ML, XOF},  // Mali
+         {MT, EUR},  // Malta
+         {MH, USD},  // Marshall Islands
+         {MQ, EUR},  // Martinique (France)
+         {MR, MRU},  // Mauritania
+         {MU, MUR},  // Mauritius
+         {MY, EUR},  // Mayotte (France)
+         {MX, MXN},  // Mexico
+         {MX, MXV},  // Mexico
+         {FM, USD},  // Micronesia
+         {MD, MDL},  // Moldova
+         {MC, EUR},  // Monaco
+         {MN, MNT},  // Mongolia
+         {ME, EUR},  // Montenegro
+         {MS, XCD},  // Montserrat (UK)
+         {MA, MAD},  // Morocco
+         {MZ, MXN},  // Mozambique
+         {MM, MMK},  // Myanmar
+
+                     // N
+         {NA, NAD},  // Namibia
+         {NA, ZAR},  // Namibia
+         {NR, AUD},  // Nauru
+         {NP, NPR},  // Nepal
+         {NL, EUR},  // Netherlands
+         {NC, XPF},  // New Caledonia (France)
+         {NZ, NZD},  // New Zealand
+         {NI, NIO},  // Nicaragua
+         {NE, XOF},  // Niger
+         {NG, NGN},  // Nigeria
+         {NU, NZD},  // Niue (New Zealand)
+         {NF, AUD},  // Norfolk Island (Australia)
+         {MP, USD},  // Northern Mariana Islands (USA)
+         {NO, NOK},  // Norway
+
+                     // O
+         {OM, OMR},  // Oman
+
          //{, },  // 
       };
       
