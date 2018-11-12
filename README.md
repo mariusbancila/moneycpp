@@ -1,8 +1,6 @@
 # moneycpp
 A C++ 17 header-only, cross-platform library for handling monetary values, currencies, rounding and other related features.
 
-**THIS PROJECT IS A WORK IN PROGRESS!**
-
 ## Core requirements
 The library is intended for being used in a variety of types of application including ERP systems, banking, finance, insurrance, games, and others.
 
@@ -13,7 +11,6 @@ The following is a list of its core requirements:
 * Support the entire ISO 4217 list of currencies.
 * Support the entire ISO 3166-1 list of countries.
 * It should be possible for users to add new (virtual) currencies and countries.
-* Format and parse monetary values.
 
 ## Overview
 The library is built around several core components:
@@ -90,14 +87,24 @@ assert(cu2 == currency::BOB);
 ```
 
 ```cpp
-// finding all the currencies from a country 
+// finding all the currencies from a country as a set
 auto s = country::find_country_currencies(country::BO);
 assert(s.size() == 2);
 assert(*s.begin() == currency::BOB);
 assert(*std::next(s.begin()) == currency::BOV);
 ```
 
-The built-in databases for countries and currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to defind the range to search.
+```cpp
+// finding all the currencies from a country as a range
+auto r = country::country_currency_equal_range(
+         country::currencies,
+         country::US);
+assert(std::distance(r.first, r.second) == 2);
+assert(r.first->second == currency::USD);
+assert(std::next(r.first)->second == currency::USN);
+```
+
+The built-in databases for countries, currencies, and country currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to define the range to search. The following example shows how to do so with the currencies database, but the same apply for countries (`find_country` ovarload) and country currencies (`find_country_currencies` and `country_currency_equal_range` overloads):
 ```cpp
 std::vector<currency_unit> my_currencies{ currency::currencies };
 my_currencies.emplace_back(currency_unit{ "VIR", 1001, 2, "Virtual Currency" });
