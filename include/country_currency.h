@@ -7,9 +7,10 @@
 
 namespace moneycpp
 {
+   using country_currency_map = std::multimap<country_unit, currency_unit>;
+
    namespace country
    {
-      using country_currency_map = std::multimap<country_unit, currency_unit>;
       using namespace currency;
 
       // compiled from the following sources
@@ -343,25 +344,39 @@ namespace moneycpp
 
          return range.first->second;
       }
-
+      
+      template <typename Map = country_currency_map>
       inline std::set<currency_unit> find_country_currencies(
+         Map const & map,
          country_unit const & cu)
       {
          std::set<currency_unit> result;
-         auto range = currencies.equal_range(cu);
+         auto range = map.equal_range(cu);
          for (auto it = range.first; it != range.second; ++it)
          {
             result.insert(it->second);
          }
          return result;
       }
-      
+
+      inline std::set<currency_unit> find_country_currencies(
+         country_unit const & cu)
+      {
+         return find_country_currencies(currencies, cu);
+      }
+
       template <typename Map>
-      inline std::pair<typename Map::iterator, typename Map::iterator> find_country_currency(
-         Map map, 
+      inline std::pair<typename Map::const_iterator, typename Map::const_iterator> country_currency_equal_range(
+         Map const & map, 
          country_unit const & cu)
       {
          return map.equal_range(cu);
-      }      
+      }
+
+      inline std::pair<typename country_currency_map::const_iterator, typename country_currency_map::const_iterator> country_currency_equal_range(
+         country_unit const & cu)
+      {
+         return country_currency_equal_range(currencies, cu);
+      }
    }
 }
