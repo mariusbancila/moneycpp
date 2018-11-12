@@ -22,7 +22,7 @@ The library is built around several core components:
 ## Library API
 ### Monetary values
 
-A monetary value has two dimensions: the actual amount and the currency that it represents. A monetary value is represented by `money` class.
+A monetary value has two dimensions: the actual amount and the currency that it represents. A monetary value is represented by the `money` class.
 The following are examples for working with monetary values:
 
 ```cpp
@@ -62,14 +62,6 @@ The library provides a full database of ISO recognized countries and currencies 
 
 ```cpp
 // finding a currency
-auto cu1 = find_country("US");
-auto cu2 = find_country(840);
-assert(cu1 == cu2);
-assert(cu1 == country::US);
-assert(cu1.value().alpha2 == "US")
-```
-```cpp
-// finding a country
 auto cu1 = find_currency("EUR");
 auto cu2 = find_currency(978);
 assert(cu1 == cu2);
@@ -78,7 +70,16 @@ assert(cu1.value().code == "EUR");
 ```
 
 ```cpp
-// finding the currency of a country
+// finding a country
+auto cu1 = find_country("US");
+auto cu2 = find_country(840);
+assert(cu1 == cu2);
+assert(cu1 == country::US);
+assert(cu1.value().alpha2 == "US")
+```
+
+```cpp
+// finding the (main) currency of a country
 auto cu1 = country::find_country_currency(country::AF);
 assert(cu1 == currency::AFN);
 
