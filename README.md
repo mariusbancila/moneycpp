@@ -169,11 +169,11 @@ The library is accompanied by unit tests (build with Catch2). CMake is used for 
 * run CMake from the `build` folder
 * open the project in the IDE (such as Visual Studio or Xcode), build the project, and run it
 
-Here is an example for creating a project for VS2017 with `boost` available at `C:\libraries\boost_1_68_0`.
+Here is an example for creating a project for VS2017 with `boost` available at `C:\libraries\boost_1_68_0\` (make sure to include the trailing `\`).
 ```
 mkdir build
 cd build
-cmake .. -G "Visual Studio 15 2017" -DUSE_BOOST_MULTIPRECISION=ON -DBOOST_INCLUDE_DIR=C:\libraries\boost_1_68_0\
+cmake .. -G "Visual Studio 15 2017" -DBOOST_MULTIPRECISION=ON -DBOOST_INCLUDE_DIR=C:\libraries\boost_1_68_0\
 ```
 
 ## Related projects
