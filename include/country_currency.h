@@ -48,7 +48,7 @@ namespace moneycpp
          {BT, INR},  // Bhutan
          {BO, BOB},  // Bolivia
          {BO, BOV},  // Bolivia
-         {BQ, USD},  // Bonaire (Netherlands)
+         {BQ, USD},  // Bonaire, Sint Eustatius and Saba (Netherlands)
          {BA, BAM},  // Bosnia and Herzegovina	
          {BW, BWP},  // Botswana
          {BV, NOK},  // Bouvet Island (NO)
@@ -229,7 +229,110 @@ namespace moneycpp
                      // O
          {OM, OMR},  // Oman
 
-         //{, },  // 
+         {PK, PKR},  // Pakistan
+         {PW, USD},  // Palau
+         {PS, ILS},  // Palestine
+         {PA, PAB},  // Panama
+         {PA, USD},  // Panama
+         {PG, PGK},  // Papua New Guinea
+         {PY, PYG},  // Paraguay
+         {PE, PEN},  // Peru
+         {PH, PHP},  // Philippines
+         {PN, NZD},  // Pitcairn Islands (UK)
+         {PL, PLN},  // Poland
+         {PT, EUR},  // Portugal
+         {PR, USD},  // Puerto Rico (USA)
+
+                     // Q
+         {QA, QAR},  // Qatar
+
+                     // R
+         {RE, EUR},  // Reunion (France)
+         {RO, RON},  // Romania
+         {RU, RUB},  // Russia
+         {RW, RWF},  // Rwanda
+
+                     // S
+         {BL, EUR},  // Saint Barthelemy (France)
+         {SH, SHP},  // Saint Helena, Ascension and Tristan da Cunha (UK)
+         {KN, XCD},  // Saint Kitts and Nevis
+         {LC, XCD},  // Saint Lucia
+         {MF, EUR},  // Saint Martin (France)
+         {PM, EUR},  // Saint Pierre and Miquelon (France)
+         {VC, XCD},  // Saint Vincent and the Grenadines
+         {WS, WST},  // Samoa
+         {SM, EUR},  // San Marino
+         {ST, STN},  // Sao Tome and Principe
+         {SA, SAR},  // Saudi Arabia
+         {SN, XOF},  // Senegal
+         {RS, RSD},  // Serbia
+         {SC, SCR},  // Seychelles
+         {SL, SLL},  // Sierra Leone
+         {SG, SGD},  // Singapore
+         {SX, ANG},  // Sint Maarten (Netherlands)
+         {SK, EUR},  // Slovakia
+         {SI, EUR},  // Slovenia
+         {SB, SBD},  // Solomon Islands
+         {SO, SOS},  // Somalia
+         {ZA, ZAR},  // South Africa
+         {GS, GBP},  // South Georgia Island (UK)
+         {SS, SSP},  // South Sudan
+         {ES, EUR},  // Spain
+         {LK, LKR},  // Sri Lanka
+         {SD, SDG},  // Sudan
+         {SR, SRD},  // Suriname
+         {SJ, NOK},  // Svalbard and Jan Mayen (Norway)
+         {SE, SEK},  // Sweden
+         {CH, CHF},  // Switzerland
+         {CH, CHE},  // Switzerland
+         {CH, CHW},  // Switzerland
+         {SY, SYP},  // Syria
+
+                     // T
+         {TW, TWD},  // Taiwan
+         {TJ, TJS},  // Tajikistan
+         {TZ, TZS},  // Tanzania
+         {TH, THB},  // Thailand
+         {TL, USD},  // Timor-Leste
+         {TG, XOF},  // Togo
+         {TK, NZD},  // Tokelau (New Zealand)
+         {TO, TOP},  // Tonga
+         {TT, TTD},  // Trinidad and Tobago
+         {TN, TND},  // Tunisia
+         {TR, TRY},  // Turkey
+         {TM, TMT},  // Turkmenistan
+         {TC, USD},  // Turks and Caicos Islands (UK)
+         {TV, AUD},  // Tuvalu
+
+                     // U
+         {UG, UGX},  // Uganda
+         {UA, UAH},  // Ukraine
+         {AE, AED},  // United Arab Emirates
+         {GB, GBP},  // United Kingdom
+         {US, USD},  // United States of America
+         {US, USN},  // United States of America
+         {UM, USD},  // United States Minor Outlying Islands
+         {VI, USD},  // US Virgin Islands (USA)
+         {UY, UYU},  // Uruguay
+         {UY, UYI},  // Uruguay
+         {UZ, UZS},  // Uzbekistan
+
+                     // V
+         {VU, VUV},  // Vanuatu
+         {VA, EUR},  // Vatican City (Holy See)
+         {VE, VES},  // Venezuela
+         {VN, VND},  // Vietnam
+
+                     // W
+         {WF, XPF},  // Wallis and Futuna (France)
+         {EH, MAD},  // Western Sahara
+
+                     // Y
+         {YE, YER},  // Yemen
+
+                     // X
+         {ZM, ZMW},  // Zambia
+         {ZW, USD},  // Zimbabwe
       };
       
       currency_unit find_country_currency(country_unit const & cu)
