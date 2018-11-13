@@ -2,10 +2,10 @@
 A C++ 17 header-only, cross-platform library for handling monetary values, currencies, rounding and other related features.
 
 ## Core requirements
-The library is intended for being used in a variety of types of application including ERP systems, banking, finance, insurrance, games, and others.
+The library is intended for being used in a variety of types of application including ERP systems, banking, finance, insurance, games, and others.
 
 The following is a list of its core requirements:
-* Provide an API for handing and calculating with monetary amounts.
+* Provide an API for handling and calculating with monetary amounts.
 * Support different numeric capabilities.
 * Provide a default set of rounding algorithms and policies and support additional user-defined ones.
 * Support the entire ISO 4217 list of currencies.
