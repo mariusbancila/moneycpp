@@ -166,9 +166,16 @@ The library works with:
 * `boost::multiprecision` library, with particular specializations for `boost::multiprecision::cpp_dec_float<50>`, aliased as `decimal`
 * any 3rd library provided that you specialize the rounding function object templates
 
+To include the full library of ISO specified currencies and countries you must define the macro `HAS_COUNTRY_AND_CURRENCY_DB`.
+
 In order to use `boost::multiprecision` you must:
 * define the macro `HAS_BOOST_MULTIPRECISION`
-* make the path to the `boost` library available in the include search path
+* make the path to the `boost` headers available in the include search path
+
+In order to use `boost::optional` instead of `std::optional` you must:
+* define the macro `HAS_BOOST_optional`
+* make the path to the `boost` headers available in the include search path
+* make the path to the `boost` library files avaible for the libraries search path
 
 The library is accompanied by unit tests (build with Catch2). CMake is used for creating projects to build and run the unit tests. You can do the following to build it with support for `boost::multiprecision`:
 * clone or download and unzip the `moneycpp` library
