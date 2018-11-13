@@ -8,15 +8,15 @@ The following is a list of its core requirements:
 * Provide an API for handling and calculating with monetary amounts.
 * Support different numeric capabilities.
 * Provide a default set of rounding algorithms and policies and support additional user-defined ones.
-* Support the entire ISO 4217 list of currencies.
-* Support the entire ISO 3166-1 list of countries.
+* Support the entire [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) list of currencies.
+* Support the entire [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) list of countries.
 * It should be possible for users to add new (virtual) currencies and countries.
 
 ## Overview
 The library is built around several core components:
 * `money` that holds a monetary value
-* `currency_unit` that contains currency information for a monetary value as per ISO 4217
-* `country_unit` that contains country information in relation to currencies, as per ISO 3166-1
+* `currency_unit` that contains currency information for a monetary value as per [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
+* `country_unit` that contains country information in relation to currencies, as per [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1)
 * rounding algorithms - that specify how values are rounded, and policies - that specify how monetary values are rounded using a rounding algorithm
 
 ## Library API
