@@ -80,19 +80,19 @@ assert(cu1.value().alpha2 == "US")
 
 ```cpp
 // finding the (main) currency of a country
-auto cu1 = country::find_country_currency(country::AF);
-assert(cu1 == currency::AFN);
+auto cu1 = country::find_country_currency(country::RO);
+assert(cu1 == currency::RON);
 
-auto cu2 = country::find_country_currency(country::BO);
-assert(cu2 == currency::BOB);
+auto cu2 = country::find_country_currency(country::US);
+assert(cu2 == currency::USD);
 ```
 
 ```cpp
 // finding all the currencies from a country as a set
-auto s = country::find_country_currencies(country::BO);
+auto s = country::find_country_currencies(country::US);
 assert(s.size() == 2);
-assert(*s.begin() == currency::BOB);
-assert(*std::next(s.begin()) == currency::BOV);
+assert(*s.begin() == currency::USD);
+assert(*std::next(s.begin()) == currency::USN);
 ```
 
 ```cpp
