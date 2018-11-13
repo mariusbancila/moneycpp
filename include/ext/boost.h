@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef USE_BOOST_MULTIPRECISION
+#ifdef HAS_BOOST_MULTIPRECISION
 
 #include "rounding.h"
 #include "boost\multiprecision\cpp_dec_float.hpp"

@@ -13,6 +13,30 @@ namespace moneycpp
    {
       using namespace currency;
 
+      template <typename Map = country_currency_map>
+      inline std::set<currency_unit> find_country_currencies(
+         Map const & map,
+         country_unit const & cu)
+      {
+         std::set<currency_unit> result;
+         auto range = map.equal_range(cu);
+         for (auto it = range.first; it != range.second; ++it)
+         {
+            result.insert(it->second);
+         }
+         return result;
+      }
+
+      template <typename Map>
+      inline std::pair<typename Map::const_iterator, typename Map::const_iterator> country_currency_equal_range(
+         Map const & map,
+         country_unit const & cu)
+      {
+         return map.equal_range(cu);
+      }
+
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
+
       // compiled from the following sources
       //   https://www.iban.com/currency-codes
       //   https://www.countries-ofthe-world.com/world-currencies.html
@@ -344,32 +368,10 @@ namespace moneycpp
          return range.first->second;
       }
       
-      template <typename Map = country_currency_map>
-      inline std::set<currency_unit> find_country_currencies(
-         Map const & map,
-         country_unit const & cu)
-      {
-         std::set<currency_unit> result;
-         auto range = map.equal_range(cu);
-         for (auto it = range.first; it != range.second; ++it)
-         {
-            result.insert(it->second);
-         }
-         return result;
-      }
-
       inline std::set<currency_unit> find_country_currencies(
          country_unit const & cu)
       {
          return find_country_currencies(currencies, cu);
-      }
-
-      template <typename Map>
-      inline std::pair<typename Map::const_iterator, typename Map::const_iterator> country_currency_equal_range(
-         Map const & map, 
-         country_unit const & cu)
-      {
-         return map.equal_range(cu);
       }
 
       inline std::pair<typename country_currency_map::const_iterator, typename country_currency_map::const_iterator> country_currency_equal_range(
@@ -377,5 +379,7 @@ namespace moneycpp
       {
          return country_currency_equal_range(currencies, cu);
       }
+
+#endif
    }
 }

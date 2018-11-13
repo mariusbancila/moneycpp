@@ -1,7 +1,7 @@
 #include "money.h"
 #include "catch.hpp"
 
-#ifdef USE_BOOST_MULTIPRECISION
+#ifdef HAS_BOOST_MULTIPRECISION
 #include "ext\boost.h"
 #include <vector>
 

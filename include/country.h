@@ -2,7 +2,14 @@
 
 #include <initializer_list>
 #include <string_view>
-#include <optional>
+
+#ifdef HAS_BOOST_OPTIONAL
+#  include <boost/optional.hpp>
+using boost::optional;
+#else
+#  include <optional>
+using std::optional;
+#endif
 
 namespace moneycpp
 {
@@ -32,6 +39,32 @@ namespace moneycpp
    {
       return lhs.code < rhs.code;
    }
+
+   template <typename Iter>
+   inline Iter find_country(Iter first, Iter last, int const code)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->code == code)
+            return it;
+      }
+
+      return last;
+   }
+
+   template <typename Iter>
+   inline Iter find_country(Iter first, Iter last, std::string_view alpha2)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->alpha2 == alpha2)
+            return it;
+      }
+
+      return last;
+   }
+
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
 
    namespace country
    {
@@ -316,19 +349,7 @@ namespace moneycpp
       };
    }
 
-   template <typename Iter>
-   inline Iter find_country(Iter first, Iter last, int const code)
-   {
-      for (auto it = first; it != last; ++it)
-      {
-         if (it->code == code)
-            return it;
-      }
-
-      return last;
-   }
-
-   inline std::optional<country_unit> find_country(int const code)
+   inline optional<country_unit> find_country(int const code)
    {
       auto it = find_country(
          std::cbegin(country::countries),
@@ -336,24 +357,12 @@ namespace moneycpp
          code);
 
       if (it != std::cend(country::countries))
-         return std::optional<country_unit>{ *it };
+         return optional<country_unit>{ *it };
 
       return {};
    }
 
-   template <typename Iter>
-   inline Iter find_country(Iter first, Iter last, std::string_view alpha2)
-   {
-      for (auto it = first; it != last; ++it)
-      {
-         if (it->alpha2 == alpha2)
-            return it;
-      }
-
-      return last;
-   }
-
-   inline std::optional<country_unit> find_country(std::string_view alpha2)
+   inline optional<country_unit> find_country(std::string_view alpha2)
    {
       auto it = find_country(
          std::cbegin(country::countries),
@@ -361,9 +370,10 @@ namespace moneycpp
          alpha2);
 
       if (it != std::cend(country::countries))
-         return std::optional<country_unit>{ *it };
+         return optional<country_unit>{ *it };
 
       return {};
    }
 
+#endif
 }

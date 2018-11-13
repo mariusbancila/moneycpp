@@ -2,7 +2,14 @@
 
 #include <initializer_list>
 #include <string_view>
-#include <optional>
+
+#ifdef HAS_BOOST_OPTIONAL
+#  include <boost/optional.hpp>
+using boost::optional;
+#else
+#  include <optional>
+using std::optional;
+#endif
 
 namespace moneycpp
 {
@@ -32,6 +39,33 @@ namespace moneycpp
    {
       return lhs.number < rhs.number;
    }
+
+   template <typename Iter>
+   inline Iter find_currency(Iter first, Iter last, std::string_view code)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->code == code)
+            return it;
+      }
+
+      return last;
+   }
+
+
+   template <typename Iter>
+   inline Iter find_currency(Iter first, Iter last, int const number)
+   {
+      for (auto it = first; it != last; ++it)
+      {
+         if (it->number == number)
+            return it;
+      }
+
+      return last;
+   }
+
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
 
    namespace currency
    {
@@ -281,19 +315,9 @@ namespace moneycpp
       };
    }
 
-   template <typename Iter>
-   inline Iter find_currency(Iter first, Iter last, std::string_view code)
-   {
-      for (auto it = first; it != last; ++it)
-      {
-         if (it->code == code)
-            return it;
-      }
+#endif
 
-      return last;
-   }
-
-   inline std::optional<currency_unit> find_currency(std::string_view code)
+   inline optional<currency_unit> find_currency(std::string_view code)
    {
       auto it = find_currency(
          std::cbegin(currency::currencies),
@@ -301,24 +325,12 @@ namespace moneycpp
          code);
 
       if (it != std::cend(currency::currencies))
-         return std::optional<currency_unit>{ *it };
+         return optional<currency_unit>{ *it };
 
       return {};
    }
 
-   template <typename Iter>
-   inline Iter find_currency(Iter first, Iter last, int const number)
-   {
-      for (auto it = first; it != last; ++it)
-      {
-         if (it->number == number)
-            return it;
-      }
-
-      return last;
-   }
-
-   inline std::optional<currency_unit> find_currency(int const number)
+   inline optional<currency_unit> find_currency(int const number)
    {
       auto it = find_currency(
          std::cbegin(currency::currencies),
@@ -326,7 +338,7 @@ namespace moneycpp
          number);
 
       if (it != std::cend(currency::currencies))
-         return std::optional<currency_unit>{ *it };
+         return optional<currency_unit>{ *it };
 
       return {};
    }

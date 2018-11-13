@@ -159,7 +159,7 @@ The library works with:
 * any 3rd library provided that you specialize the rounding function object templates
 
 In order to use `boost::multiprecision` you must:
-* define the macro `USE_BOOST_MULTIPRECISION`
+* define the macro `HAS_BOOST_MULTIPRECISION`
 * make the path to the `boost` library available in the include search path
 
 The library is accompanied by unit tests (build with Catch2). CMake is used for creating projects to build and run the unit tests. You can do the following to build it with support for `boost::multiprecision`:
@@ -173,7 +173,7 @@ Here is an example for creating a project for VS2017 with `boost` available at `
 ```
 mkdir build
 cd build
-cmake .. -G "Visual Studio 15 2017" -DBOOST_MULTIPRECISION=ON -DBOOST_INCLUDE_DIR=C:\libraries\boost_1_68_0\
+cmake .. -G "Visual Studio 15 2017" -DCOUNTRY_AND_CURRENCY_DB=ON -DBOOST_MULTIPRECISION=ON -DBOOST_INCLUDE_DIR=C:\libraries\boost_1_68_0\
 ```
 
 ## Related projects
