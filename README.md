@@ -105,7 +105,7 @@ assert(r.first->second == currency::USD);
 assert(std::next(r.first)->second == currency::USN);
 ```
 
-The built-in databases for countries, currencies, and country currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to define the range to search. The following example shows how to do so with the currencies database, but the same apply for countries (`find_country()` overload) and country currencies (`find_country_currencies()` and `country_currency_equal_range()` overloads):
+The built-in databases for countries, currencies, and country currencies (available when the `HAS_COUNTRY_AND_CURRENCY_DB` macro is defined) can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to define the range to search. The following example shows how to do so with the currencies database, but the same apply for countries (`find_country()` overload) and country currencies (`find_country_currencies()` and `country_currency_equal_range()` overloads):
 ```cpp
 std::vector<currency_unit> my_currencies{ currency::currencies };
 my_currencies.emplace_back(currency_unit{ "VIR", 1001, 2, "Virtual Currency" });
