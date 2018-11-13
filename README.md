@@ -162,7 +162,7 @@ Any additional user-defined policy can be used instead of the ones supplied with
 The library is composed of several headers and uses C++ 17 features (such as <tt>string_view</tt>, <tt>optional</tt>, structured bindings). You need a compiler that supports these features.
 
 The library works with:
-* the built-in floating point types, `float`, `double`, and `long double`
+* the built-in floating point types, `float`, `double`, and `long double` (NOT ADVICED!)
 * `boost::multiprecision` library, with particular specializations for `boost::multiprecision::cpp_dec_float<50>`, aliased as `decimal`
 * any 3rd library provided that you specialize the rounding function object templates
 
