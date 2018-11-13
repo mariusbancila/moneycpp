@@ -41,7 +41,7 @@ auto ex = exchange_money(
    rounding_policy_standard(round_ceiling()));  
 ```
 
-The examples above use the type `double` for numerical values. This is a floating point type and can only represent exact decimal values for numbers that are a sum of inverse powers of two. That means floating point types can exactly represent values such as 0.5, 1.25, or 42.90625 but cannot do the same for values such as 0.10 or 19.99. Therefore, floating point types are not appropriate for monetary values because they cannot exactly represent most real numbers. This can be an important aspect in financial applications or, in general, in applications that deal with monetary transactions because over time, or over a large number of transactions, the small differences can add up to important values. Because of this, the library supports 3rd party libraries that provide better representations of real numbers, such as `boost::multiprecision`. All the rouding algorithms are specialized for the `boost::multiprecision::cpp_dec_float`, aliased as `decimal`, as shown below.
+The examples above use the type `double` for numerical values. This is a floating point type and can only represent exact decimal values for numbers that are a sum of inverse powers of two. That means floating point types can exactly represent values such as 0.5, 1.25, or 42.90625 but cannot do the same for values such as 0.10 or 19.99. Therefore, floating point types are not appropriate for monetary values because they cannot exactly represent most real numbers. This can be an important aspect in financial applications or, in general, in applications that deal with monetary transactions because over time, or over a large number of transactions, the small differences can add up to important values. Because of this, the library supports 3rd party libraries that provide better representations of real numbers, such as `boost::multiprecision`. All the rounding algorithms are specialized for the `boost::multiprecision::cpp_dec_float`, aliased as `decimal`, as shown below.
 
 ```cpp
 using decimal = boost::multiprecision::number<boost::multiprecision::cpp_dec_float<50>>;
@@ -105,7 +105,7 @@ assert(r.first->second == currency::USD);
 assert(std::next(r.first)->second == currency::USN);
 ```
 
-The built-in databases for countries, currencies, and country currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to define the range to search. The following example shows how to do so with the currencies database, but the same apply for countries (`find_country` ovarload) and country currencies (`find_country_currencies` and `country_currency_equal_range` overloads):
+The built-in databases for countries, currencies, and country currencies can be extended with additional units. In this case, you can use overloaded versions of these functions that use iterators to define the range to search. The following example shows how to do so with the currencies database, but the same apply for countries (`find_country()` overload) and country currencies (`find_country_currencies()` and `country_currency_equal_range()` overloads):
 ```cpp
 std::vector<currency_unit> my_currencies{ currency::currencies };
 my_currencies.emplace_back(currency_unit{ "VIR", 1001, 2, "Virtual Currency" });
