@@ -162,7 +162,7 @@ Any additional user-defined policy can be used instead of the ones supplied with
 The library is composed of several headers and uses C++ 17 features (such as <tt>string_view</tt>, <tt>optional</tt>, structured bindings). You need a compiler that supports these features.
 
 The library works with:
-* the build-in floating point types, `float`, `double`, and `long double`
+* the built-in floating point types, `float`, `double`, and `long double`
 * `boost::multiprecision` library, with particular specializations for `boost::multiprecision::cpp_dec_float<50>`, aliased as `decimal`
 * any 3rd library provided that you specialize the rounding function object templates
 
@@ -173,11 +173,11 @@ In order to use `boost::multiprecision` you must:
 * make the path to the `boost` headers available in the include search path
 
 In order to use `boost::optional` instead of `std::optional` you must:
-* define the macro `HAS_BOOST_optional`
+* define the macro `HAS_BOOST_OPTIONAL`
 * make the path to the `boost` headers available in the include search path
-* make the path to the `boost` library files avaible for the libraries search path
+* make the path to the `boost` library files available for the libraries search path
 
-The library is accompanied by unit tests (build with Catch2). CMake is used for creating projects to build and run the unit tests. You can do the following to build it with support for `boost::multiprecision`:
+The library is accompanied by unit tests (built with Catch2). CMake is used for creating projects to build and run the unit tests. You can do the following to build it with support for `boost::multiprecision`:
 * clone or download and unzip the `moneycpp` library
 * create a `build` folder
 * download and unzip [Boost](https://www.boost.org/)
