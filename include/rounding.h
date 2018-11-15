@@ -92,7 +92,7 @@ namespace moneycpp
    template <>
    inline float round_up::operator()(float const value) const
    {
-      return value > 0.0f ? std::ceilf(value) : std::floorf(value);
+      return value > 0.0f ? std::ceil(value) : std::floor(value);
    }
 
    template <>
@@ -104,13 +104,13 @@ namespace moneycpp
    template <>
    inline long double round_up::operator()(long double const value) const
    {
-      return value > 0.0l ? std::ceill(value) : std::floorl(value);
+      return value > 0.0l ? std::ceil(value) : std::floor(value);
    }
 
    template <>
    inline float round_down::operator()(float const value) const
    {
-      return value > 0.0f ? std::floorf(value) : std::ceilf(value);
+      return value > 0.0f ? std::floor(value) : std::ceil(value);
    }
 
    template <>
@@ -122,13 +122,13 @@ namespace moneycpp
    template <>
    inline long double round_down::operator()(long double const value) const
    {
-      return value > 0.0l ? std::floorl(value) : std::ceill(value);
+      return value > 0.0l ? std::floor(value) : std::ceil(value);
    }
 
    template <>
    inline float round_ceiling::operator()(float const value) const
    {
-      return std::ceilf(value);
+      return std::ceil(value);
    }
 
    template <>
@@ -140,13 +140,13 @@ namespace moneycpp
    template <>
    inline long double round_ceiling::operator()(long double const value) const
    {
-      return std::ceill(value);
+      return std::ceil(value);
    }
 
    template <>
    inline float round_floor::operator()(float const value) const
    {
-      return std::floorf(value);
+      return std::floor(value);
    }
 
    template <>
@@ -158,13 +158,13 @@ namespace moneycpp
    template <>
    inline long double round_floor::operator()(long double const value) const
    {
-      return std::floorl(value);
+      return std::floor(value);
    }
 
    template <>
    inline float round_half_up::operator()(float const value) const
    {
-      return value > 0.0f ? std::floorf(value + 0.5f) : std::ceilf(value - 0.5f);
+      return value > 0.0f ? std::floor(value + 0.5f) : std::ceil(value - 0.5f);
    }
 
    template <>
@@ -176,13 +176,13 @@ namespace moneycpp
    template <>
    inline long double round_half_up::operator()(long double const value) const
    {
-      return value > 0.0l ? std::floorl(value + 0.5l) : std::ceill(value - 0.5l);
+      return value > 0.0l ? std::floor(value + 0.5l) : std::ceil(value - 0.5l);
    }
 
    template <>
    inline float round_half_down::operator()(float const value) const
    {
-      return value > 0.0f ? std::ceilf(value - 0.5f) : std::floorf(value + 0.5f);
+      return value > 0.0f ? std::ceil(value - 0.5f) : std::floor(value + 0.5f);
    }
 
    template <>
@@ -194,7 +194,7 @@ namespace moneycpp
    template <>
    inline long double round_half_down::operator()(long double const value) const
    {
-      return value > 0.0l ? std::ceill(value - 0.5l) : std::floorl(value + 0.5l);
+      return value > 0.0l ? std::ceil(value - 0.5l) : std::floor(value + 0.5l);
    }
 
    template <>
@@ -219,7 +219,7 @@ namespace moneycpp
    inline float round_half_odd::operator()(float const value) const
    {
       auto r = std::remainder(value, 1.0f);
-      return std::abs(r) == 0.5f ? value + r : std::floorf(value + 0.5f);
+      return std::abs(r) == 0.5f ? value + r : std::floor(value + 0.5f);
    }
 
    template <>
@@ -233,6 +233,6 @@ namespace moneycpp
    inline long double round_half_odd::operator()(long double const value) const
    {
       auto r = std::remainder(value, 1.0l);
-      return std::abs(r) == 0.5l ? value + r : std::floorl(value + 0.5l);
+      return std::abs(r) == 0.5l ? value + r : std::floor(value + 0.5l);
    }
 }
