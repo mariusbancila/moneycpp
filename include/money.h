@@ -126,9 +126,7 @@ namespace moneycpp
       template <typename TValue>
       money<TValue> operator()(money<TValue> const value)
       {
-         using std::pow;
-
-         auto c = pow(TValue(10.0), value.currency.minor_unit);
+         auto c = std::pow(10, value.currency.minor_unit);
          auto amount = static_cast<TValue>(value.amount * c);
          auto r = std::invoke(std::forward<RoundFunc>(rfun), amount);
          return make_money<TValue>(r / c, value.currency);
