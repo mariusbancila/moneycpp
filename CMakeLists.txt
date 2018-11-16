@@ -16,6 +16,8 @@ endif()
 
 message(status "** CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 
-include(CTest)
+if(BUILD_TESTS)
+    include(CTest)
+endif()
 
 add_subdirectory(test)
