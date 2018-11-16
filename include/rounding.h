@@ -14,7 +14,7 @@ namespace moneycpp
    struct round_up
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards zero
@@ -23,7 +23,7 @@ namespace moneycpp
    struct round_down
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards positive infinity
@@ -32,7 +32,7 @@ namespace moneycpp
    struct round_ceiling
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards negative infinity
@@ -41,7 +41,7 @@ namespace moneycpp
    struct round_floor
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards "nearest neighbor" unless both neighbors are equidistant, in which case round up
@@ -50,7 +50,7 @@ namespace moneycpp
    struct round_half_up
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards "nearest neighbor" unless both neighbors are equidistant, in which case round down
@@ -59,7 +59,7 @@ namespace moneycpp
    struct round_half_down
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards the "nearest neighbor" unless both neighbors are equidistant, in which case, round towards the even neighbor
@@ -68,7 +68,7 @@ namespace moneycpp
    struct round_half_even
    {      
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round towards the "nearest neighbor" unless both neighbors are equidistant, in which case, round towards the odd neighbor
@@ -77,14 +77,14 @@ namespace moneycpp
    struct round_half_odd
    {
       template <typename T>
-      inline T operator()(T const) const;
+      T operator()(T const) const;
    };
 
    // round nothing
    struct round_none
    {
       template <typename T>
-      constexpr inline T operator()(T const value) const { return value; }
+      constexpr T operator()(T const value) const { return value; }
    };
 
    // specialization
