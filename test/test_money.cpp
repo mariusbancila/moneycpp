@@ -103,7 +103,7 @@ TEST_CASE("Test rounding policy none", "[policy]")
    for (auto const p : values)
    {
       auto m = make_money(p.first, currency::USD);
-      auto r = rounding_policy_none()(m);
+      auto r = rounding_policy_none(round_none())(m);
 
       REQUIRE_EQ(p.second, r.amount);
    }
