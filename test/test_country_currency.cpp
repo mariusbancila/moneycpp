@@ -1,3 +1,7 @@
+#ifndef HAS_COUNTRY_AND_CURRENCY_DB
+#define HAS_COUNTRY_AND_CURRENCY_DB
+#endif
+
 #include "country_currency.h"
 #include "catch.hpp"
 

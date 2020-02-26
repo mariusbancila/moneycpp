@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 #include <string_view>
+#include <stdexcept>
 
 #ifdef HAS_BOOST_OPTIONAL
 #  include <boost/optional.hpp>
@@ -319,6 +320,7 @@ namespace moneycpp
 
    inline optional<currency_unit> find_currency(std::string_view code)
    {
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
       auto it = find_currency(
          std::cbegin(currency::currencies),
          std::cend(currency::currencies),
@@ -326,12 +328,13 @@ namespace moneycpp
 
       if (it != std::cend(currency::currencies))
          return optional<currency_unit>{ *it };
-
+#endif
       return {};
    }
 
    inline optional<currency_unit> find_currency(int const number)
    {
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
       auto it = find_currency(
          std::cbegin(currency::currencies),
          std::cend(currency::currencies),
@@ -339,7 +342,7 @@ namespace moneycpp
 
       if (it != std::cend(currency::currencies))
          return optional<currency_unit>{ *it };
-
+#endif
       return {};
    }
 

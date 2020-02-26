@@ -351,6 +351,7 @@ namespace moneycpp
 
    inline optional<country_unit> find_country(int const code)
    {
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
       auto it = find_country(
          std::cbegin(country::countries),
          std::cend(country::countries),
@@ -358,12 +359,14 @@ namespace moneycpp
 
       if (it != std::cend(country::countries))
          return optional<country_unit>{ *it };
+#endif
 
       return {};
    }
 
    inline optional<country_unit> find_country(std::string_view alpha2)
    {
+#ifdef HAS_COUNTRY_AND_CURRENCY_DB
       auto it = find_country(
          std::cbegin(country::countries),
          std::cend(country::countries),
@@ -371,7 +374,7 @@ namespace moneycpp
 
       if (it != std::cend(country::countries))
          return optional<country_unit>{ *it };
-
+#endif
       return {};
    }
 
