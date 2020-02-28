@@ -123,10 +123,10 @@ namespace moneycpp
       constexpr country_unit CD { 180, "CD", "COD", "Congo (Democratic Republic of the)", true };
       constexpr country_unit CK { 184, "CK", "COK", "Cook Islands", false };
       constexpr country_unit CR { 188, "CR", "CRI", "Costa Rica", true };
-      constexpr country_unit CI { 384, "CI", "CIV", "Côte d'Ivoire", true };
+      constexpr country_unit CI { 384, "CI", "CIV", "CÃ´te d'Ivoire", true };
       constexpr country_unit HR { 191, "HR", "HRV", "Croatia", true };
       constexpr country_unit CU { 192, "CU", "CUB", "Cuba", true };
-      constexpr country_unit CW { 531, "CW", "CUW", "Curaçao", false };
+      constexpr country_unit CW { 531, "CW", "CUW", "CuraÃ§ao", false };
       constexpr country_unit CY { 196, "CY", "CYP", "Cyprus", true };
       constexpr country_unit CZ { 203, "CZ", "CZE", "Czechia", true };
       constexpr country_unit DK { 208, "DK", "DNK", "Demark", true };

@@ -164,7 +164,7 @@ namespace moneycpp
       constexpr currency_unit MGA { "MGA", 969, 1, "Malagasy ariary" };
       constexpr currency_unit MKD { "MKD", 807, 2, "Macedonian denar" };
       constexpr currency_unit MMK { "MMK", 104, 2, "Myanmar kyat" };
-      constexpr currency_unit MNT { "MNT", 496, 2, "Mongolian tögrög" };
+      constexpr currency_unit MNT { "MNT", 496, 2, "Mongolian t√∂gr√∂g" };
       constexpr currency_unit MOP { "MOP", 446, 2, "Macanese pataca" };
       constexpr currency_unit MRU { "MRU", 929, 1, "Mauritanian ouguiya" };
       constexpr currency_unit MUR { "MUR", 480, 2, "Mauritian rupee" };
@@ -225,7 +225,7 @@ namespace moneycpp
       constexpr currency_unit UYU { "UYU", 858, 2, "Uruguayan peso" };
       constexpr currency_unit UYW { "UYW", 927, 4, "Unidad previsional" };
       constexpr currency_unit UZS { "UZS", 860, 2, "Uzbekistan som" };
-      constexpr currency_unit VES { "VES", 928, 2, "Venezuelan bolÌvar soberano" };
+      constexpr currency_unit VES { "VES", 928, 2, "Venezuelan bol√≠var soberano" };
       constexpr currency_unit VND { "VND", 704, 0, "Vietnamese dong" };
       constexpr currency_unit VUV { "VUV", 548, 0, "Vanuatu vatu" };
       constexpr currency_unit WST { "WST", 882, 2, "Samoan tala" };
