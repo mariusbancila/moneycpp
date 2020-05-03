@@ -359,7 +359,7 @@ namespace moneycpp
          {ZW, USD},  // Zimbabwe
       };
       
-      currency_unit find_country_currency(country_unit const & cu)
+      inline currency_unit find_country_currency(country_unit const & cu)
       {
          auto range = currencies.equal_range(cu);
          if (range.first == range.second)
