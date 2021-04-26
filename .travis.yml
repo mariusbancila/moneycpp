@@ -3,6 +3,8 @@ compiler: gcc
 dist: trusty
 
 before_install:
+  - sudo apt-get clean
+  - sudo rm -rf /var/lib/apt/lists/*
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
 
